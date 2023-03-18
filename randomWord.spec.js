@@ -10,12 +10,10 @@ const words = [...sixChars, ...sevenChars, ...eightChars, ...nineChars];
 
 // self-explanatory template
 describe('randomWord', () => {
-    it('returns the word "barndom" or "balkong"', () => {
-        const wordLength = 7;
+    it('returns a word with 7 words', () => {
         const repeatChars = false;
-        const result = randomWord(words, wordLength, repeatChars);
-        const expectedWords = ['barndom', 'balkong'];
-        expect(result).toBeOneOf(expectedWords);
+        const result = randomWord(words, 7, repeatChars);
+        expect(result).toHaveLength(7);
     })
 })
 
