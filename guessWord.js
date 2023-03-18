@@ -1,42 +1,26 @@
 export default function guessWord(target, guess) {
-  guess = guess.toUpperCase().split('');
-  target = target.toUpperCase().split('');
+    guess = guess.toUpperCase().split('');
+    target = target.toUpperCase().split('');
 
-  const temp = [];
-  for (let i = 0; i < guess.length; i++) {
-
-    if (guess[i] === target[i]) {
-      temp.push({ letter: guess[i], result: 'correct' });
-    } 
-
-    else if (!target.includes(guess[i])) {
-      temp.push({ letter: guess[i], result: 'incorrect' });
-
-    } 
-
-    else {
-      let guessCharCount = 0;
-      guess.forEach((char) => {
-        if (char === guess[i]) {
-          guessCharCount++;
+    const temp = Array(guess.length).fill(null);
+    for (let i = 0; i < guess.length; i++) {
+        if (guess[i] === target[i]) {
+            temp.splice(i, 1, { letter: guess[i], result: 'correct' });
+            target.splice(i, 1, null);
+            guess.splice(i, 1, null);
         }
-      });
-
-      let targetCharCount = 0;
-      target.forEach((char) => {
-        if (char === target[i]) {
-          targetCharCount++;
-        }
-      });
-
-      if (guessCharCount > targetCharCount) {
-        temp.push({ letter: guess[i], result: 'incorrect' });
-      } else {
-        temp.push({ letter: guess[i], result: 'misplaced' });
-
-      }
     }
-  }
-  console.log(temp);
-  return temp;
+    for (let i = 0; i < guess.length; i++) {
+        if (guess[i] !== null) {
+            const index = target.findIndex(char => char === guess[i]);
+            if (index >= 0) {
+                temp.splice(i, 1, { letter: guess[i], result: 'misplaced' });
+                target.splice(index, 1, null);
+                guess.splice(i, 1, null);
+            } else {
+                temp.splice(i, 1, { letter: guess[i], result: 'incorrect' });
+            }
+        }
+    }
+    return temp;
 }
