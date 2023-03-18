@@ -7,7 +7,6 @@ export default function guessWord(target, guess) {
 
     if (guess[i] === target[i]) {
       temp.push({ letter: guess[i], result: 'correct' });
-
     } 
 
     else if (!target.includes(guess[i])) {
@@ -41,5 +40,3 @@ export default function guessWord(target, guess) {
   console.log(temp);
   return temp;
 }
-
-guessWord('CYKLA', 'HALLÅ');
