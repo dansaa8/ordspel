@@ -40,5 +40,19 @@ describe('guessWord', () => {
         ];
         expect(result).toStrictEqual(expectedArray);
     });
+
+    it('returns an expected array', () => {
+        const result = guessWord('banaNer', 'renarnA');
+        const expectedArray = [
+            { letter: 'R', result: 'misplaced' },
+            { letter: 'E', result: 'misplaced' },
+            { letter: 'N', result: 'correct' }, // (Eftersom det redan finns ett korrekt L)
+            { letter: 'A', result: 'correct' },
+            { letter: 'R', result: 'incorrect' },
+            { letter: 'N', result: 'misplaced' },
+            { letter: 'A', result: 'misplaced' }
+        ];
+        expect(result).toStrictEqual(expectedArray);
+    });
 });
 
