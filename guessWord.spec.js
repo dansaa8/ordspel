@@ -42,17 +42,35 @@ describe('guessWord', () => {
     });
 
     it('returns an expected array', () => {
-        const result = guessWord('banaNer', 'renarnA');
+        const result = guessWord('RINGARNA', 'RIDDAREN');
         const expectedArray = [
-            { letter: 'R', result: 'misplaced' },
-            { letter: 'E', result: 'misplaced' },
-            { letter: 'N', result: 'correct' }, // (Eftersom det redan finns ett korrekt L)
+            { letter: 'R', result: 'correct' },
+            { letter: 'I', result: 'correct' },
+            { letter: 'D', result: 'incorrect' },
+            { letter: 'D', result: 'incorrect' },
             { letter: 'A', result: 'correct' },
-            { letter: 'R', result: 'incorrect' },
-            { letter: 'N', result: 'misplaced' },
-            { letter: 'A', result: 'misplaced' }
+            { letter: 'R', result: 'correct' },
+            { letter: 'E', result: 'incorrect' },
+            { letter: 'N', result: 'misplaced' }
         ];
         expect(result).toStrictEqual(expectedArray);
     });
+
+    it('returns an expected array', () => {
+        const result = guessWord('SKIDBACKE', 'OSTHYVELN');
+        const expectedArray = [
+            { letter: 'O', result: 'incorrect' },
+            { letter: 'S', result: 'misplaced' },
+            { letter: 'T', result: 'incorrect' },
+            { letter: 'H', result: 'incorrect' },
+            { letter: 'Y', result: 'incorrect' },
+            { letter: 'V', result: 'incorrect' },
+            { letter: 'E', result: 'misplaced' },
+            { letter: 'L', result: 'incorrect' },
+            { letter: 'N', result: 'incorrect' }
+        ];
+        expect(result).toStrictEqual(expectedArray);
+    });
+
 });
 
