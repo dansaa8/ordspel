@@ -1,0 +1,15 @@
+{
+  "name": "ordspel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "guessWord.js",
+  "type": "module",
+  "scripts": {
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
