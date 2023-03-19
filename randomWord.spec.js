@@ -1,4 +1,4 @@
-import {test, describe, expect, it } from '@jest/globals';
+import { test, describe, expect, it } from '@jest/globals';
 import randomWord from './randomWord.js';
 
 // the first two words in every array has a char repeated atleast twice 
@@ -16,48 +16,31 @@ const words = [...oneChar, ...twoChars, ...threeChars, ...fourChars, ...fiveChar
 const lengths = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
+// Note to self: Släng in test som ser till att när repeatchars är false
+// så ska endast ord med rätt längd och utan duplicate chars returneras.
+// t.ex beläst och bensin i ord med sex chars.
 
 // Följande testning ser till så att randomWord returnerar rätt längd på ordet.
 const cases = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 describe("randomWord(), test that returned lengths are correct", () => {
-  test.each(cases)(
-    "given %i argument, returns %i",
-    (length) => {
-      const result = randomWord(words, length, true).length;
-      expect(result).toEqual(length);
-    }
-  );
+    test.each(cases)(
+        "given %i argument, returns %i",
+        (length) => {
+            const result = randomWord(words, length, true).length;
+            expect(result).toEqual(length);
+        }
+    );
 });
 
-
-
-describe('randomWord', () => {
-    it('returns a word with 7 chars', () => {
-        const repeatChars = false;
-        const result = randomWord(words, 7, repeatChars);
-        expect(result).toHaveLength(7);
+// Följande testning ser till så att vi får ett null värde tillbaka när inget ord kan slumpas fram. 
+describe('randomWord(), test that null is returned when no word can be generated', () => {
+    it('should return null', () => {
+        const tooLongLength = 10;
+        const result = randomWord(words, tooLongLength, true);
+        expect(result).toBe(null);
     })
-    it('returns a word with 8 chars', () => {
-        const repeatChars = false;
-        const result = randomWord(words, 8, repeatChars);
-        expect(result).toHaveLength(8);
+    it('should return null', () => {
+        const result = randomWord(words, 0, true);
+        expect(result).toBe(null);
     })
-
-    // describe('randomWord', () => {
-    //     it('returns the word "gitarr"'), () => {
-    //         const result = randomWord(words, 6, true);
-    //         expect(result).tobe('gitarr');
-    //     }
-
-    // })
-
-    // describe('randomWord', () => {
-    //     it('returns the word "javascript"'), () => {
-    //         const result = randomWord(words, 10, true);
-    //         expect(result).tobe('gitarr');
-    //     }
-
-    // })
-
-
 })
