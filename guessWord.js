@@ -1,16 +1,17 @@
 export default function guessWord(target, guess) {
     guess = guess.toUpperCase().split('');
     target = target.toUpperCase().split('');
+    const wordLength = guess.length;
 
-    const temp = Array(guess.length).fill(null);
-    for (let i = 0; i < guess.length; i++) {
+    const temp = Array(wordLength).fill(null);
+    for (let i = 0; i < wordLength; i++) {
         if (guess[i] === target[i]) {
             temp.splice(i, 1, { letter: guess[i], result: 'correct' });
             target.splice(i, 1, null);
             guess.splice(i, 1, null);
         }
     }
-    for (let i = 0; i < guess.length; i++) {
+    for (let i = 0; i < wordLength; i++) {
         if (guess[i] !== null) {
             const index = target.findIndex(char => char === guess[i]);
             if (index >= 0) {

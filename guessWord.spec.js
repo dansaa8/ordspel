@@ -3,6 +3,12 @@ import guessWord from './guessWord.js';
 
 describe('guessWord', () => {
 
+    // dessa testerna är heltäckande. 
+    // många olika typer av strängar testas
+    // med olika längder och med gissningar
+    // som har väldigt varierande grad av
+    // rätt i gissningsargumentet (andra parametern).
+
     it('returns an expected array', () => {
         const result = guessWord('CYKLA', 'HALLÅ');
         const expectedArray = [
@@ -57,7 +63,7 @@ describe('guessWord', () => {
     });
 
     it('returns an expected array', () => {
-        const result = guessWord('SKIDBACKE', 'OSTHYVELN');
+        const result = guessWord('SkIdBACkE', 'OSTHyVeLN');
         const expectedArray = [
             { letter: 'O', result: 'incorrect' },
             { letter: 'S', result: 'misplaced' },
@@ -68,6 +74,34 @@ describe('guessWord', () => {
             { letter: 'E', result: 'misplaced' },
             { letter: 'L', result: 'incorrect' },
             { letter: 'N', result: 'incorrect' }
+        ];
+        expect(result).toStrictEqual(expectedArray);
+    });
+
+    
+    it('returns an expected array', () => {
+        const result = guessWord('SNOK', 'FELA');
+        const expectedArray = [
+            { letter: 'F', result: 'incorrect' },
+            { letter: 'E', result: 'incorrect' },
+            { letter: 'L', result: 'incorrect' },
+            { letter: 'A', result: 'incorrect' },
+        ];
+        expect(result).toStrictEqual(expectedArray);
+    });
+
+    it('returns an expected array', () => {
+        const result = guessWord('Ö', 'Å');
+        const expectedArray = [
+            { letter: 'Å', result: 'incorrect' },
+        ];
+        expect(result).toStrictEqual(expectedArray);
+    });
+
+    it('returns an expected array', () => {
+        const result = guessWord('Ö', 'Ö');
+        const expectedArray = [
+            { letter: 'Ö', result: 'correct' },
         ];
         expect(result).toStrictEqual(expectedArray);
     });
