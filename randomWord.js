@@ -14,7 +14,11 @@ export default function randomWord(words, wordLength, repeatChars) {
             return true;
         });
     }
-    return words[Math.floor(Math.random() * words.length)];
+    if (words.length > 0 && !undefined) {
+        return words[Math.floor(Math.random() * words.length)];
+    } else {
+        return null;
+    }
 }
 
 
@@ -30,4 +34,4 @@ const nineChars = ['atomvapen', 'beställer', 'avhjälper', 'bergsäker'];
 const words = [...oneChar, ...twoChars, ...threeChars, ...fourChars, ...fiveChars, ...sixChars, ...sevenChars, ...eightChars, ...nineChars];
 
 // console.log(randomWord(words, 1, false).length);
-console.log(randomWord(['hejsan', 'svejsan', 'pådig', 'öö'], 1, true));
+console.log(randomWord(['hejsan', 'svejsan', 'pådig', 'öö'], 2, true));
