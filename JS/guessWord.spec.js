@@ -78,7 +78,7 @@ describe('guessWord', () => {
         expect(result).toStrictEqual(expectedArray);
     });
 
-    
+
     it('returns an expected array', () => {
         const result = guessWord('SNOK', 'FELA');
         const expectedArray = [
