@@ -41,16 +41,16 @@ describe("randomWord(), test that returned lengths are correct", () => {
 // ..returnerar ord som inte har repeterande bokstäver (2 eller fler av samma bokstav).
 describe("randomWord(), test that strings with no repeatedChars are returned when third argument is false", () => {
     const cases = [
-        [6, 'beläst', 'bensin'],
-        [7, 'barndom', 'balkong'],
-        [8, , 'bakgrund', 'papegoja'],
-        [9, 'avhjälper', 'bergsäker']
+        [6, ['beläst', 'bensin']],
+        [7, ['barndom', 'balkong']],
+        [8, ['bakgrund', 'papegoja']],
+        [9, ['avhjälper', 'bergsäker']]
     ];
     test.each(cases)(
         "given %i and false as as arguments, returns %s or %s",
-        (wordLength, expectedStr1, expectedStr2) => {
+        (wordLength, expectedWords) => {
             const result = randomWord(words, wordLength, false);
-            expect(result).toEqual(expectedStr1 || expectedStr2);
+            expect(expectedWords).toContain(result);
         }
     );
 });
@@ -65,9 +65,9 @@ describe("randomWord(), test that strings with repeatedChars also are returned w
     ];
     test.each(cases)(
         "given %i and true as as arguments, returns str0 or str1 or str2 or str3",
-        (wordLength, arrOfExpectedStr) => {
+        (wordLength, expectedWords) => {
             const result = randomWord(words, wordLength, true);
-            expect(arrOfExpectedStr).toContain(result);
+            expect(expectedWords).toContain(result);
         }
     );
 });

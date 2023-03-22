@@ -1,7 +1,7 @@
-export default function randomWord(words, wordLength, repeatChars) {
+export default function randomWord(words, requestedLength, repeatChars) {
 
     words = words.filter((word) => {
-        return word.length === wordLength;
+        return word.length === requestedLength;
     });
 
     if (repeatChars === false) {
