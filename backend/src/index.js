@@ -15,4 +15,4 @@ app.get('/highscore', async (req, res) => {
   res.send(await fs.readFile('./HTML/highscore.html'));
 });
 
-app.listen(3000);
+app.listen(5080 );
