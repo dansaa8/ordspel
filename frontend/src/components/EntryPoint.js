@@ -7,12 +7,14 @@ export default function EntryPoint({ setPhase }) {
   }
   return (
     <>
-      <button
-        className="stdBtn settingsBtn"
-        onClick={() => handleBtnClick('settings')}
-      >
-        Settings
-      </button>
+      <>
+        <button
+          className="stdBtn settingsBtn"
+          onClick={() => handleBtnClick('settings')}
+        >
+          Settings
+        </button>
+      </>
       <button className="stdBtn mainBtn">Start a new game</button>
     </>
   );

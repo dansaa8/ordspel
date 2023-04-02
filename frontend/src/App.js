@@ -5,15 +5,23 @@ import Settings from './components/Settings';
 
 export default function App() {
   const [phase, setPhase] = useState('entryPoint');
+  const [wordLength, setWordLength] = useState(4);
+  const [repeatChars, setRepeatChars] = useState(true);
 
   return (
-    <div className="gameContainer">
+    <>
       {
         {
-          entryPoint: <EntryPoint setPhase={setPhase}/>,
-          settings: <Settings />
+          entryPoint: <EntryPoint setPhase={setPhase} />,
+          settings: (
+            <Settings
+              setPhase={setPhase}
+              setWordLength={setWordLength}
+              setRepeatChars={setRepeatChars}
+            />
+          ),
         }[phase]
       }
-    </div>
+    </>
   );
 }

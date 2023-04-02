@@ -1,34 +1,74 @@
-.gameContainer {
+body,
+html {
+  height: 100%;
+  padding: 2px;
+}
+
+body {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 100vh;
+  align-items: stretch;
+  border: 1px solid #B9B9B9;
+  border-radius: 6px;
+  padding: 60px 20px 20px 20px;
 }
 
+.innerBox {
+  width: 100%;
+  border: 1px solid #B9B9B9;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
 .navbar-custom {
-    height: 150px;
+  height: 150px;
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  font-size: 20px;
+  border: 1px solid #727171;
+  border-radius: 6px;
+}
+
+button {
+  border: 1px solid #727171;
 }
 
 .stdBtn {
-  width: 80%;
-  height: 114px;
+  height: 80px;  
   border-style: none;
   border-radius: 14px;
-  background-color: #747070;
+  background-color: #2b2b2b;
   color: white;
   border: none;
   font-size: 32px;
+  border: 1px solid #2c2c2c;
+  width: 100%;
+  max-width: 600px;
 }
 
-.mainBtn {
-  align-self: flex-end;
-  margin-bottom: 100px;
-}
-
-.settingsBtn {
-    margin-top: auto;
+.optionsTxt {
+  position: relative;
+  bottom: 30px;
+  font-size: 25px;
+  color: #8A8A8A;
 }
 
 .stdBtn:hover {
   background-color: #4a4848;
 }
+
