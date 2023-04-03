@@ -1,0 +1,52 @@
+.wordLengthSelector {
+  display: flex;
+}
+
+.inputWL {
+  display: none;
+}
+
+.labelWL {
+  color: red;
+}
+
+.dropdown-toggle {
+}
+
+.dropdown-menu.show {
+  min-width: inherit;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+}
+
+.dropdown-toggle {
+  width: 50px;
+}
+
+.wordLengthBtn {
+  background-color: #2b2b2b !important;
+  color: white !important;
+}
+
+.settingsBox {
+    padding-top: 10px;
+  width: 100%;
+  border: 1px solid #b9b9b9;
+  border-radius: 6px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items:start;
+  gap: 6px;
+}
+
+
+
+.optionsTxt {
+  width: 100%;
+  font-size: 25px;
+  color: #8a8a8a;
+  flex: 0;
+}

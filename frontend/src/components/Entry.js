@@ -1,7 +1,7 @@
-import './EntryPoint.css';
+import './Entry.css';
 import { useState } from 'react';
 
-export default function EntryPoint({ setPhase }) {
+export default function Entry({ setPhase }) {
   function handleBtnClick(newPhase) {
     setPhase(newPhase);
   }

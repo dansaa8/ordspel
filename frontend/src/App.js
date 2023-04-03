@@ -1,23 +1,28 @@
 import { useState } from 'react';
 import './App.css';
-import EntryPoint from './components/EntryPoint';
-import Settings from './components/Settings';
+import Entry from './components/Entry';
+import Settings from './components/Settings/Settings';
 
 export default function App() {
-  const [phase, setPhase] = useState('entryPoint');
-  const [wordLength, setWordLength] = useState(4);
-  const [repeatChars, setRepeatChars] = useState(true);
+  const [phase, setPhase] = useState('entry');
+  // const [settings, setSettings] = useState({
+  //   wordLength: 0,
+  //   repeatChars: true,
+  // });
+
+  const [wordLength, setWordlength] = useState('any');
+  
 
   return (
     <>
       {
         {
-          entryPoint: <EntryPoint setPhase={setPhase} />,
+          entry: <Entry setPhase={setPhase} />,
           settings: (
             <Settings
               setPhase={setPhase}
-              setWordLength={setWordLength}
-              setRepeatChars={setRepeatChars}
+              wordLength={wordLength}
+              setWordlength={setWordlength}
             />
           ),
         }[phase]
