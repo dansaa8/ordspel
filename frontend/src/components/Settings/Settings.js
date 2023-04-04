@@ -1,7 +1,7 @@
 import RepCharsSelector from './RepCharsSelector';
 import './Settings.css';
 import WordLengthSelector from './WordLengthSelector';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export default function Settings({
   setPhase,
@@ -10,15 +10,15 @@ export default function Settings({
   repChars,
   setRepChars,
 }) {
+  // Sync preselected settings with saved state from App.
   // Abbrevations: WL = wordLength, RC = repChars
   const [tempWL, setTempWL] = useState();
   const [tempRC, setTempRC] = useState();
-
-  // Sync preselected settings with saved state from App.
-  useEffect(() => {
+  useMemo(() => {
     syncSettings();
 
   }, [])
+
   function syncSettings()  {
     setTempWL(wordLength);
     setTempRC(repChars);
