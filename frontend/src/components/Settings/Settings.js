@@ -2,7 +2,7 @@ import './Settings.css';
 import WordLengthSelector from './WordLengthSelector';
 import { useState } from 'react';
 
-export default function Settings({ setPhase, wordLength, setWordlength }) {
+export default function Settings({ setPhase, wordLength, setWordlength, repChars, setRepChars }) {
   //   function handleBtnClick(newPhase) {
   //     setPhase = newPhase;
   //   }
