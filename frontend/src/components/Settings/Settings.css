@@ -7,7 +7,12 @@
 }
 
 .labelWL {
-  color: red;
+  color: black;
+  border: 1px solid black;
+  text-align: center;
+  width: 60px;
+  place-items: center;
+  border-radius: 15px;
 }
 
 .dropdown-toggle {
@@ -22,7 +27,7 @@
 }
 
 .dropdown-toggle {
-  width: 50px;
+  width: 60px;
 }
 
 .wordLengthBtn {
