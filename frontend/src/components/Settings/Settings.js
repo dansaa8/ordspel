@@ -10,19 +10,11 @@ export default function Settings({
   repChars,
   setRepChars,
 }) {
+  
   // Sync preselected settings with saved state from App.
   // Abbrevations: WL = wordLength, RC = repChars
-  const [tempWL, setTempWL] = useState();
-  const [tempRC, setTempRC] = useState();
-  useMemo(() => {
-    syncSettings();
-
-  }, [])
-
-  function syncSettings()  {
-    setTempWL(wordLength);
-    setTempRC(repChars);
-  }
+  const [tempWL, setTempWL] = useState(wordLength);
+  const [tempRC, setTempRC] = useState(repChars);
 
     const handleBtnClick = (saveChanges) => {
       if(saveChanges === true) {
