@@ -1,63 +1,44 @@
 import { useState } from 'react';
 
-export default function RepCharsSelector({ setWordlength, wordLength }) {
-  const minLetters = 4;
-  const maxLetters = 9;
-
-  const handleChange = (event) => {
-    setWordlength(event.target.value);
-  };
-
-  const renderRadioButtons = () => {
-    const radioButtons = [];
-    for (let i = minLetters; i <= maxLetters; i++) {
-      radioButtons.push(
-        <label for={'WL' + i} className="labelWL dropdown-item">
-          {i}
-        </label>,
-        <input
-          type="radio"
-          id={'WL' + i}
-          name="wordLength"
-          className="inputWL"
-          value={i}
-        ></input>
-      );
-    }
-    return radioButtons;
+export default function RepCharsSelector({ setRepChars, repChars }) {
+  const handleRadioButton = (value) => {
+    // setRepChars(event.target.value);
+    setRepChars(value);
   };
 
   return (
     <>
-      <section className="wordLengthSelector">
-      <h3>Number of letters</h3>
-        <div class="dropdown">
-          <button
-            class="btn dropdown-toggle wordLengthBtn"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            {wordLength}
-          </button>
-          <div
-            class="dropdown-menu"
-            onChange={handleChange}
-          >
-            <label for="wLengthAll" className="labelWL dropdown-item">
-              any
-            </label>
-            <input
-              type="radio"
-              id="wLengthAll"
-              name="wordLength"
-              className="inputWL"
-              value="any"
-            />
-            <>{renderRadioButtons()}</>
-          </div>
+      <section className="repCharsSelector">
+        <h3>Repeated letters</h3>
+        <div className="form-check">
+          <input
+            type="radio"
+            className="inputRC form-check-input"
+            checked={repChars === true}
+            onChange={() => handleRadioButton(true)}
+            // id="repCharsTrue"
+            // name="repChars"
+            // value={true}
+            // checked={repChars === true}
+          />
+          <label for="repCharsTrue" className="labelRC form-check-label">
+            Yes
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            type="radio"
+            checked={repChars === false}
+            onChange={() => handleRadioButton(false)}
+            className="inputRC form-check-input"
+            // id="repCharsFalse"
+            // name="repChars"
+            // value={false}
+            // checked={repChars === false}
+          />
+          <label for="repCharsTrue" className="labelRC form-check-label">
+            No
+          </label>
         </div>
       </section>
     </>

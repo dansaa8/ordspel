@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './WordLengthSelector.css';
 
 export default function WordLengthSelector({ setWordlength, wordLength }) {
   const minLetters = 4;

@@ -11,7 +11,7 @@ export default function App() {
   // });
 
   const [wordLength, setWordlength] = useState('any');
-  const [repChars, setRepChars] = useState('true');
+  const [repChars, setRepChars] = useState(false);
   
 
   return (
