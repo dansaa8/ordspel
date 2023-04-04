@@ -29,8 +29,8 @@ export default function WordLengthSelector({ setWordlength, wordLength }) {
 
   return (
     <>
-      <h3>Number of letters</h3>
       <section className="wordLengthSelector">
+      <h3>Number of letters</h3>
         <div class="dropdown">
           <button
             class="btn dropdown-toggle wordLengthBtn"
