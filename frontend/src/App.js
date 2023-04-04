@@ -5,11 +5,6 @@ import Settings from './components/Settings/Settings';
 
 export default function App() {
   const [phase, setPhase] = useState('entry');
-  // const [settings, setSettings] = useState({
-  //   wordLength: 0,
-  //   repeatChars: true,
-  // });
-
   const [wordLength, setWordlength] = useState('any');
   const [repChars, setRepChars] = useState(false);  
 
