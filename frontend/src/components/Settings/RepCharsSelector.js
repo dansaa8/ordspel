@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './RepCharsSelector.css';
 
 export default function RepCharsSelector({ setRepChars, repChars }) {
   const handleRadioButton = (value) => {
@@ -16,10 +17,6 @@ export default function RepCharsSelector({ setRepChars, repChars }) {
             className="inputRC form-check-input"
             checked={repChars === true}
             onChange={() => handleRadioButton(true)}
-            // id="repCharsTrue"
-            // name="repChars"
-            // value={true}
-            // checked={repChars === true}
           />
           <label for="repCharsTrue" className="labelRC form-check-label">
             Yes
@@ -31,10 +28,6 @@ export default function RepCharsSelector({ setRepChars, repChars }) {
             checked={repChars === false}
             onChange={() => handleRadioButton(false)}
             className="inputRC form-check-input"
-            // id="repCharsFalse"
-            // name="repChars"
-            // value={false}
-            // checked={repChars === false}
           />
           <label for="repCharsTrue" className="labelRC form-check-label">
             No

@@ -9,6 +9,10 @@
   align-items:start;
 }
 
+.cancelBtn {
+  background-color: rgb(119, 0, 0) !important;
+}
+
 .optionsTxt {
   width: 100%;
   font-size: 25px;

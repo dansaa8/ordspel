@@ -11,8 +11,7 @@ export default function App() {
   // });
 
   const [wordLength, setWordlength] = useState('any');
-  const [repChars, setRepChars] = useState(false);
-  
+  const [repChars, setRepChars] = useState(false);  
 
   return (
     <>
@@ -29,6 +28,7 @@ export default function App() {
               repChars={repChars}
               setRepChars={setRepChars}
             />
+        
           ),
         }[phase]
       }
