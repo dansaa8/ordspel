@@ -6,7 +6,7 @@ export default function GameActive({ setPhase, settings }) {
 
   useEffect(() => {
     const startGame = async () => {
-      const res = await fetch('http://localhost:5080/api/games', {
+      const res = await fetch('api/games', {
         method: 'post',
         headers: {
           'Content-type': 'application/json'
