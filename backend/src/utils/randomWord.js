@@ -1,12 +1,15 @@
 import fakeAPI from './fakeAPI.js';
 
 export default function randomWord(settings) {
-  const requestedLength = Number(settings.wordLength);
-  const repeatChars = settings.repeatingChars;
   let words = fakeAPI();
-  words = words.filter((word) => {
-    return word.length === requestedLength;
-  });
+  const repeatChars = settings.repeatingChars;
+
+  if (settings.wordLength != 'any') {
+    const requestedLength = Number(settings.wordLength);
+    words = words.filter((word) => {
+      return word.length === requestedLength;
+    });
+  }
 
   if (repeatChars === false) {
     words = words.filter((word) => {
