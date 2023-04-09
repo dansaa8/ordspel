@@ -20,7 +20,7 @@ export default function RepCharsSelector({ settings, setSettings }) {
             checked={settings.repeatingChars === true}
             onChange={() => handleRadioButton(true)}
           />
-          <label for="repCharsTrue" className="labelRC form-check-label">
+          <label htmlFor="repCharsTrue" className="labelRC form-check-label">
             Yes
           </label>
         </div>
@@ -31,7 +31,7 @@ export default function RepCharsSelector({ settings, setSettings }) {
             onChange={() => handleRadioButton(false)}
             className="inputRC form-check-input"
           />
-          <label for="repCharsTrue" className="labelRC form-check-label">
+          <label htmlFor="repCharsTrue" className="labelRC form-check-label">
             No
           </label>
         </div>

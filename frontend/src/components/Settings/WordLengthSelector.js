@@ -17,10 +17,11 @@ export default function WordLengthSelector({ settings, setSettings }) {
       let lengthVal = i;
       if (i < minLetters) lengthVal = 'any';
       radioButtons.push(
-        <label for={'WL' + lengthVal} className="labelWL dropdown-item">
+        <label key={`label${i}`} htmlFor={'WL' + lengthVal} className="labelWL dropdown-item">
           {lengthVal}
         </label>,
         <input
+          key={`input${i}`}
           type="radio"
           id={'WL' + lengthVal}
           name="wordLength"
@@ -36,9 +37,9 @@ export default function WordLengthSelector({ settings, setSettings }) {
     <>
       <section className="wordLengthSelector">
         <h3>Number of letters</h3>
-        <div class="dropdown">
+        <div className="dropdown">
           <button
-            class="btn dropdown-toggle wordLengthBtn"
+            className="btn dropdown-toggle wordLengthBtn"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -47,7 +48,7 @@ export default function WordLengthSelector({ settings, setSettings }) {
           >
             {settings.wordLength}
           </button>
-          <div class="dropdown-menu" onChange={handleChange}>
+          <div className="dropdown-menu" onChange={handleChange}>
             {renderRadioButtons()}
           </div>
         </div>
