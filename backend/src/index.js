@@ -16,12 +16,38 @@ app.post('/api/games', (req, res) => {
     id: uuid.v4(),
     startTime: new Date(),
   };
-  
+
   GAMES.push(newGame);
-  console.log(newGame.correctWord)
+  console.log(newGame.correctWord);
+  console.log(GAMES);
   // 201 created success status response code indicates that
   // the request has succeeded and has led to the creation of a resource.
   res.status(201).json({ id: newGame.id });
+});
+
+app.post('/api/games/:id/guesses', (req, res) => {
+  const game = GAMES.find((savedGame) => savedGame.id == req.params.id);
+  if (game) {
+    const guess = req.body.guess;
+    game.guesses.push(guess);
+
+    if (guess === game.correctWord) {
+      game.endTime = new Date();
+
+      res.status(201).json({
+        guesses: game.guesses,
+        result: game,
+        correct: true,
+      });
+    } else {
+      res.status(201).json({
+        guesses: game.guesses,
+        correct: false,
+      });
+    }
+  } else {
+    res.status(404).end();
+  }
 });
 
 //konfigurera express, så att den ska leta efter statiska i frontendmappens
