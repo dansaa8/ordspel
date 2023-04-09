@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Entry from './components/Entry';
 import Settings from './components/Settings/Settings';
+import GameActive from './components/GameActive';
 
 export default function App() {
   const [phase, setPhase] = useState('entry');
@@ -39,6 +40,10 @@ export default function App() {
               setRepChars={setRepChars}
             />
           ),
+          gameActive: <GameActive
+            wordLength={wordLength}
+            repChars={repChars}
+          />
         }[phase]
       }
     </>
