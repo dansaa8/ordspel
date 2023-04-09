@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Entry from './components/Entry';
 import Settings from './components/Settings/Settings';
@@ -6,7 +6,24 @@ import Settings from './components/Settings/Settings';
 export default function App() {
   const [phase, setPhase] = useState('entry');
   const [wordLength, setWordlength] = useState('any');
-  const [repChars, setRepChars] = useState(false);  
+  const [repChars, setRepChars] = useState(false);
+
+  // fetch('http://localhost:5080');
+  // useEffect(() => {
+  //   async function loadHighscores() {
+  //     const res = await fetch('/highscores');
+  //     const payload = await res.json();
+  //     console.log(payload.data);
+  //   }
+
+  useEffect(() => {
+    async function loadHighscores() {
+      const res = await fetch("./highscores");
+      const payload = await res.json();
+      console.log(payload.data);
+    }
+    loadHighscores();
+  }, []);
 
   return (
     <>
@@ -16,14 +33,11 @@ export default function App() {
           settings: (
             <Settings
               setPhase={setPhase}
-
               wordLength={wordLength}
               setWordlength={setWordlength}
-
               repChars={repChars}
               setRepChars={setRepChars}
             />
-        
           ),
         }[phase]
       }
