@@ -8,7 +8,7 @@ export default function App() {
   const [phase, setPhase] = useState('entry');
   const [settings, setSettings] = useState({
     wordLength: 'any',
-    repeatingChars: true
+    repeatingChars: true,
   });
 
   // fetch('http://localhost:5080');
@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     async function loadHighscores() {
-      const res = await fetch("./highscores");
+      const res = await fetch('./highscores');
       const payload = await res.json();
       console.log(payload.data);
     }
@@ -40,10 +40,12 @@ export default function App() {
               setSettings={setSettings}
             />
           ),
-          gameActive: <GameActive
-          settings={settings}
-          />
-        }[phase]
+          gameActive: (
+            <GameActive 
+             setPhase={setPhase} 
+             settings={settings} />),
+        }
+        [phase]
       }
     </>
   );

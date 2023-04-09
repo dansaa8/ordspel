@@ -1,25 +1,5 @@
 Breakdown:
 
-# Börja med att repetera lektioner.
-
-1. Ladda ner alla lektioner som jag ej har upprepat.
-
-2. Kolla igenom och code along:a
-
-3. Eventuellt omdefinera nedanstående punkter efterhand.
-
-
-# Definera Frontend:
-
-1. När man klickar på start new game-knappen så ska state ändras på setPhase till gameActive i App-componenten.
-
-2. Skapa en game component.
-
-3. Game-componenten ska ta emot följande states från App.js:
-   *  wordLength, repChars
-
-
-
 # Definera Backend:
 
 1. Skapa en API-funktion som hämtar orden från resursen som Sara länkade på slack (async, await o hela faderullan).

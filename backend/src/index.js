@@ -4,12 +4,8 @@ import fs from 'fs/promises';
 const app = express();
 app.use(express.json());
 
-// Resources
-// * /highscores (Get to retriveve, POST to create)
 
-//Eftersom att det ligger i en array i våran applikation
-//Så försvinner datan när vi startar om servern.
-//Arrayen är bara en variabel som existerar så länge som programmet kör.
+
 const fakeHigscoreDatabase = [1, 2, 3];
 
 //konfigurera express, så att den ska leta efter statiska i frontendmappens
@@ -23,8 +19,6 @@ app.get('/highscores', (req, res) => {
 });
 
 app.post('/highscores', (req, res) => {
-  // TODO: Egentligen borde vi kolla att req.body är det vi
-  // förväntar att den ska vara. Men det behöver vi inte bry oss om nu.
   fakeHigscoreDatabase.push(req.body);
 
   // i REST-API:er brukar man returnera status 201 (som betyder created)
