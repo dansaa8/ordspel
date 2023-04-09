@@ -1,27 +1,31 @@
 import { useState } from 'react';
 import './WordLengthSelector.css';
 
-export default function WordLengthSelector({ setWordlength, wordLength }) {
+export default function WordLengthSelector({ settings, setSettings }) {
   const minLetters = 4;
   const maxLetters = 9;
 
   const handleChange = (event) => {
-    setWordlength(event.target.value);
+    setSettings((settings) => {
+      return { ...settings, wordLength: event.target.value };
+    });
   };
 
   const renderRadioButtons = () => {
     const radioButtons = [];
-    for (let i = minLetters; i <= maxLetters; i++) {
+    for (let i = minLetters - 1; i <= maxLetters; i++) {
+      let lengthVal = i;
+      if (i < minLetters) lengthVal = 'any';
       radioButtons.push(
-        <label for={'WL' + i} className="labelWL dropdown-item">
-          {i}
+        <label for={'WL' + lengthVal} className="labelWL dropdown-item">
+          {lengthVal}
         </label>,
         <input
           type="radio"
-          id={'WL' + i}
+          id={'WL' + lengthVal}
           name="wordLength"
           className="inputWL"
-          value={i}
+          value={lengthVal}
         ></input>
       );
     }
@@ -31,7 +35,7 @@ export default function WordLengthSelector({ setWordlength, wordLength }) {
   return (
     <>
       <section className="wordLengthSelector">
-      <h3>Number of letters</h3>
+        <h3>Number of letters</h3>
         <div class="dropdown">
           <button
             class="btn dropdown-toggle wordLengthBtn"
@@ -41,23 +45,10 @@ export default function WordLengthSelector({ setWordlength, wordLength }) {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            {wordLength}
+            {settings.wordLength}
           </button>
-          <div
-            class="dropdown-menu"
-            onChange={handleChange}
-          >
-            <label for="wLengthAll" className="labelWL dropdown-item">
-              any
-            </label>
-            <input
-              type="radio"
-              id="wLengthAll"
-              name="wordLength"
-              className="inputWL"
-              value="any"
-            />
-            <>{renderRadioButtons()}</>
+          <div class="dropdown-menu" onChange={handleChange}>
+            {renderRadioButtons()}
           </div>
         </div>
       </section>

@@ -6,8 +6,10 @@ import GameActive from './components/GameActive';
 
 export default function App() {
   const [phase, setPhase] = useState('entry');
-  const [wordLength, setWordlength] = useState('any');
-  const [repChars, setRepChars] = useState(false);
+  const [settings, setSettings] = useState({
+    wordLength: 'any',
+    repeatingChars: true
+  });
 
   // fetch('http://localhost:5080');
   // useEffect(() => {
@@ -34,15 +36,12 @@ export default function App() {
           settings: (
             <Settings
               setPhase={setPhase}
-              wordLength={wordLength}
-              setWordlength={setWordlength}
-              repChars={repChars}
-              setRepChars={setRepChars}
+              settings={settings}
+              setSettings={setSettings}
             />
           ),
           gameActive: <GameActive
-            wordLength={wordLength}
-            repChars={repChars}
+          settings={settings}
           />
         }[phase]
       }
