@@ -14,9 +14,9 @@
 
    # Separera:
 
-      1. Fixa så att frontEnd får ordets längd på lämpligt ställe, men inte själva ORDET!
+      1. Fixa så att frontEnd får ordets längd på lämpligt ställe, men inte själva ORDET! ✅ 
 
-      2. Skapa en counter-component som håller koll på hur många gissningar x av 5. 
+      2. Skapa en counter-component som håller koll på hur många gissningar x av 5. ❌ (vänta med implementering)
 
       3. Skapa en Wordcontainer som returneras från game där alla ord (form element/Word-componenter ska ligga).
          3.1 Skapa en validate knapp inuti returvärdet från Game.
@@ -35,5 +35,5 @@
 
 
    # Experimentera:
-   
+
 

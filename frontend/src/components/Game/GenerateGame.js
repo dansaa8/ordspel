@@ -3,6 +3,7 @@ import Game from './Game';
 
 export default function GenerateGame({ setPhase, settings }) {
   const [gameId, setGameId] = useState(null);
+  const [wordLength, setWordLength] = useState(0);
   console.log(settings);
   console.log(JSON.stringify(settings));
 
@@ -16,17 +17,18 @@ export default function GenerateGame({ setPhase, settings }) {
         body: JSON.stringify(settings),
       });
       const data = await res.json();
-      console.log(data);
       setGameId(data.id);
+      setWordLength(data.wordLength);
     };
 
     startGame();
   }, []);
 
-  if (gameId) {
+  console.log(wordLength);
+  if (gameId && wordLength) {
     return (
       <div className="App">
-        <Game />
+        <Game wordLength={wordLength} gameId={gameId}/>
       </div>
     );
   } else {

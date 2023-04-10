@@ -18,11 +18,9 @@ app.post('/api/games', (req, res) => {
   };
 
   GAMES.push(newGame);
-  console.log(newGame.correctWord);
-  console.log(GAMES);
   // 201 created success status response code indicates that
   // the request has succeeded and has led to the creation of a resource.
-  res.status(201).json({ id: newGame.id });
+  res.status(201).json({ id: newGame.id, wordLength: newGame.correctWord.length});
 });
 
 app.post('/api/games/:id/guesses', (req, res) => {
