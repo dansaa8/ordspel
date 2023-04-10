@@ -2,36 +2,7 @@
    
    # Definera: 
 
-      * Skapa en Game-component med underkomponenter som liknar designen på figma.
-
-      * Fem rader med gissningar som ska ha samma längd som ordet. 
-
-      * I samma veva när vi får game id:t så ska vi också hämta längden på det slumpade ordet, 
-        så att man vet hur många bokstäver som ska renderas per rad. Viktigt att frontend endast får längden och inte själva ordet.
-        mätningen sker serverSide.
-     
-
-
-   # Separera:
-
-      1. Fixa så att frontEnd får ordets längd på lämpligt ställe, men inte själva ORDET! ✅ 
-
-      2. Skapa en counter-component som håller koll på hur många gissningar x av 5. ❌ (vänta med implementering)
-
-      3. Skapa en Wordcontainer som returneras från game där alla ord (form element/Word-componenter ska ligga).
-         3.1 Skapa en validate knapp inuti returvärdet från Game.
-
-      4. Skapa en WordComponent(form-element) och rendera dem inuti Wordcontainer som returneras från game (5st). 
-
-         4.1 Sätt antalet gånger till 5 i en variabel och
-
-         4.2 loopa igenom den för att skapa 5 st.
-
-      5. Skapa Letter component. Letter-componenten ska vara child till Word-componenten. Word-componenten ska ha 
-         lika många letter-componenter som det slumpade ordet har. 
-
-         5.1 
-
+   
 
 
    # Experimentera:
@@ -40,3 +11,7 @@
 Länkar för att inaktivera en ord-rad som inte gäller.
 https://stackoverflow.com/questions/36215244/disable-entire-form-elements-with-respect-to-a-state-react
 https://www.qodo.co.uk/blog/javascript-enabling-and-disabling-form-field-elements/
+https://linkedlist.ch/disabling_an_entire_form_in_html_37/
+
+https://stackoverflow.com/questions/7020659/submit-form-using-a-button-outside-the-form-tag
+https://dmitripavlutin.com/react-forms-tutorial/

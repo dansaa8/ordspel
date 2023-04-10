@@ -7,9 +7,11 @@ export default function Game({ wordLength, gameId }) {
   const [guesses, setGuesses] = useState([]);
   const [result, setResult] = useState(null);
   const [name, setName] = useState('');
+  const guessNr = guesses.length + 1;
+  console.log(guessNr);
 
-  async function handleSubmit() {
-    //if sats som kollar att alla inputs är ifyllda i nuvarande row.
+  async function handleSubmit(event) {
+    event.preventDefault();
     const res = await fetch(`api/games/${gameId}/guesses`, {
       method: 'post',
       headers: {
@@ -28,17 +30,17 @@ export default function Game({ wordLength, gameId }) {
   }
   return (
     <div className="gameCtr">
-      <WordRow wordLength={wordLength} formId={1} />
-      <WordRow wordLength={wordLength} formId={2} />
-      <WordRow wordLength={wordLength} formId={3} />
-      <WordRow wordLength={wordLength} formId={4} />
-      <WordRow wordLength={wordLength} formId={5} />
-      <input
+      <WordRow wordLength={wordLength} formId={1} guessNr={guessNr} />
+      <WordRow wordLength={wordLength} formId={2} guessNr={guessNr}/>
+      <WordRow wordLength={wordLength} formId={3} guessNr={guessNr}/>
+      <WordRow wordLength={wordLength} formId={4} guessNr={guessNr}/>
+      <WordRow wordLength={wordLength} formId={5} guessNr={guessNr}/>
+      <button
         type="submit"
-        form={'wordRow' + guesses.length + 1} 
+        form={'wordRow' + guessNr} 
         className="stdBtn"
-        onSubmit={() => handleSubmit}
-      ></input>
+        onSubmit={handleSubmit}
+      >Validate</button>
     </div>
   );
 }
