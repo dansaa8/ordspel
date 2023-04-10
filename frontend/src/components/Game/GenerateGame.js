@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-export default function GameActive({ setPhase, settings }) {
+import Game from './Game';
+
+export default function GenerateGame({ setPhase, settings }) {
   const [gameId, setGameId] = useState(null);
   console.log(settings);
   console.log(JSON.stringify(settings));
@@ -9,7 +11,7 @@ export default function GameActive({ setPhase, settings }) {
       const res = await fetch('api/games', {
         method: 'post',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'application/json',
         },
         body: JSON.stringify(settings),
       });
@@ -21,8 +23,13 @@ export default function GameActive({ setPhase, settings }) {
     startGame();
   }, []);
 
-//   if (gameId) {
-//     return <div>
-//     </div>;
-//   }
+  if (gameId) {
+    return (
+      <div className="App">
+        <Game />
+      </div>
+    );
+  } else {
+    return <div className="App">Loading...</div>;
+  }
 }

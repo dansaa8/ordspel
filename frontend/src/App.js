@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Entry from './components/Entry';
 import Settings from './components/Settings/Settings';
-import GameActive from './components/GameActive';
+import GenerateGame from './components/Game/GenerateGame';
 
 export default function App() {
   const [phase, setPhase] = useState('entry');
@@ -10,23 +10,6 @@ export default function App() {
     wordLength: 'any',
     repeatingChars: true,
   });
-
-  // fetch('http://localhost:5080');
-  // useEffect(() => {
-  //   async function loadHighscores() {
-  //     const res = await fetch('/highscores');
-  //     const payload = await res.json();
-  //     console.log(payload.data);
-  //   }
-
-  useEffect(() => {
-    async function loadHighscores() {
-      const res = await fetch('./highscores');
-      const payload = await res.json();
-      console.log(payload.data);
-    }
-    loadHighscores();
-  }, []);
 
   return (
     <>
@@ -40,8 +23,8 @@ export default function App() {
               setSettings={setSettings}
             />
           ),
-          gameActive: (
-            <GameActive 
+          generateGame: (
+            <GenerateGame 
              setPhase={setPhase} 
              settings={settings} />),
         }

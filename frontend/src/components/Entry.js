@@ -13,7 +13,7 @@ export default function Entry({ setPhase }) {
         onClick={() => handleBtnClick('settings')}>Settings</button>
       <button
         className="stdBtn mainBtn"
-        onClick={() => handleBtnClick('gameActive')}>Start a new game</button>
+        onClick={() => handleBtnClick('generateGame')}>Start a new game</button>
     </>
   );
 }
