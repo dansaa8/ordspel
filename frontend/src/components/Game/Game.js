@@ -12,8 +12,10 @@ export default function Game({ wordLength, gameId }) {
   const [inputWord, setInputWord] = useState(Array.from({length: 5},()=> Array.from({length: wordLength}, () => "")));
   console.log(inputWord);
 
-  async function handleSubmit(event) {
+  async function handleBtnClick(event) {
     event.preventDefault();
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
     const res = await fetch(`api/games/${gameId}/guesses`, {
       method: 'post',
       headers: {
@@ -42,7 +44,7 @@ export default function Game({ wordLength, gameId }) {
         type="submit"
         form={'wordRow' + guesses.length}
         className="stdBtn"
-        onSubmit={handleSubmit}
+        onClick={handleBtnClick}
       >Validate</button>
     </div>
   );
