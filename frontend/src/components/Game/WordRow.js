@@ -10,7 +10,7 @@ export default function WordRow({ wordLength, formId, guessNr, inputWord, setInp
           type="text" required
           maxLength={1}
           key={'letter' + i}
-          value={inputWord[i]}
+          value={inputWord[formId][i]}
           onChange={event => handleInputChange(event, i)}
         ></input>
       );
@@ -20,8 +20,8 @@ export default function WordRow({ wordLength, formId, guessNr, inputWord, setInp
 
   const handleInputChange = (ev, i) => {
     const newState = [...inputWord];
-    newState[i] = ev.target.value;
     console.log(newState);
+    newState[formId][i] = ev.target.value;
     setInputWord(newState);
   }
 
