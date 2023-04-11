@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
-import guessWord from './guessWord.js';
+import evalWord from './evalWord.js';
 
-describe('guessWord', () => {
+describe('evalWord', () => {
 
     // dessa testerna är heltäckande. 
     // många olika typer av strängar testas
@@ -10,7 +10,7 @@ describe('guessWord', () => {
     // rätt i gissningsargumentet (andra parametern).
 
     it('returns an expected array', () => {
-        const result = guessWord('CYKLA', 'HALLÅ');
+        const result = evalWord('CYKLA', 'HALLÅ');
         const expectedArray = [
             { letter: 'H', result: 'incorrect' },
             { letter: 'A', result: 'misplaced' },
@@ -22,7 +22,7 @@ describe('guessWord', () => {
     });
 
     it('returns an expected array', () => {
-        const result = guessWord('Daniel', 'Leinad');
+        const result = evalWord('Daniel', 'Leinad');
         const expectedArray = [
             { letter: 'L', result: 'misplaced' },
             { letter: 'E', result: 'misplaced' },
@@ -35,7 +35,7 @@ describe('guessWord', () => {
     });
 
     it('returns an expected array', () => {
-        const result = guessWord('Leksak', 'Kakask');
+        const result = evalWord('Leksak', 'Kakask');
         const expectedArray = [
             { letter: 'K', result: 'incorrect' },
             { letter: 'A', result: 'misplaced' },
@@ -48,7 +48,7 @@ describe('guessWord', () => {
     });
 
     it('returns an expected array', () => {
-        const result = guessWord('RINGARNA', 'RIDDAREN');
+        const result = evalWord('RINGARNA', 'RIDDAREN');
         const expectedArray = [
             { letter: 'R', result: 'correct' },
             { letter: 'I', result: 'correct' },
@@ -63,7 +63,7 @@ describe('guessWord', () => {
     });
 
     it('returns an expected array', () => {
-        const result = guessWord('SkIdBACkE', 'OSTHyVeLN');
+        const result = evalWord('SkIdBACkE', 'OSTHyVeLN');
         const expectedArray = [
             { letter: 'O', result: 'incorrect' },
             { letter: 'S', result: 'misplaced' },
@@ -80,7 +80,7 @@ describe('guessWord', () => {
 
 
     it('returns an expected array', () => {
-        const result = guessWord('SNOK', 'FELA');
+        const result = evalWord('SNOK', 'FELA');
         const expectedArray = [
             { letter: 'F', result: 'incorrect' },
             { letter: 'E', result: 'incorrect' },
@@ -91,7 +91,7 @@ describe('guessWord', () => {
     });
 
     it('returns an expected array', () => {
-        const result = guessWord('Ö', 'Å');
+        const result = evalWord('Ö', 'Å');
         const expectedArray = [
             { letter: 'Å', result: 'incorrect' },
         ];
@@ -99,7 +99,7 @@ describe('guessWord', () => {
     });
 
     it('returns an expected array', () => {
-        const result = guessWord('Ö', 'Ö');
+        const result = evalWord('Ö', 'Ö');
         const expectedArray = [
             { letter: 'Ö', result: 'correct' },
         ];
