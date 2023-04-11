@@ -15,13 +15,15 @@ export default function Game({ wordLength, gameId }) {
   async function handleBtnClick(event) {
     event.preventDefault();
     event.stopPropagation();
+    const guessStr = inputWord[guesses.length].join().toUpperCase() ;
+    console.log(guessStr);
     // event.nativeEvent.stopImmediatePropagation();
     const res = await fetch(`api/games/${gameId}/guesses`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ guess: 'gissning' }),
+      body: JSON.stringify({ guess: inputWord }),
     });
     const data = await res.json();
 
