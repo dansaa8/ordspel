@@ -1,6 +1,7 @@
 import express from 'express';
 import fs from 'fs/promises';
 import randomWord from './utils/randomWord.js';
+import evalWord from './utils/evalWord.js';
 import * as uuid from 'uuid';
 
 const app = express();

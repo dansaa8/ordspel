@@ -1,5 +1,5 @@
 import './WordRow.css';
-export default function WordRow({ wordLength, formId, guessNr, inputWord, setInputWord }) {
+export default function WordRow({ wordLength, formId, guessNr, inputWord, setInputWord, handleBtnClick }) {
 
   const renderLetters = (isActive) => {
     const letters = [];
@@ -20,7 +20,6 @@ export default function WordRow({ wordLength, formId, guessNr, inputWord, setInp
 
   const handleInputChange = (ev, i) => {
     const newState = [...inputWord];
-    console.log(newState);
     newState[formId][i] = ev.target.value;
     setInputWord(newState);
   }
@@ -35,7 +34,7 @@ export default function WordRow({ wordLength, formId, guessNr, inputWord, setInp
     );
   } else {
     return (
-      <form id={'wordRow' + formId}>
+      <form id={'wordRow' + formId} onSubmit={handleBtnClick}>
         <fieldset className="wordCtr">{renderLetters(true)}</fieldset>
       </form>
     );

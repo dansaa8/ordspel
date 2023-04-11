@@ -15,7 +15,7 @@ export default function Game({ wordLength, gameId }) {
   async function handleBtnClick(event) {
     event.preventDefault();
     event.stopPropagation();
-    event.nativeEvent.stopImmediatePropagation();
+    // event.nativeEvent.stopImmediatePropagation();
     const res = await fetch(`api/games/${gameId}/guesses`, {
       method: 'post',
       headers: {
@@ -35,16 +35,17 @@ export default function Game({ wordLength, gameId }) {
 
   return (
     <div className="gameCtr">
-      <WordRow wordLength={wordLength} formId={0} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} />
-      <WordRow wordLength={wordLength} formId={1} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} />
-      <WordRow wordLength={wordLength} formId={2} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} />
-      <WordRow wordLength={wordLength} formId={3} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} />
-      <WordRow wordLength={wordLength} formId={4} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} />
+      <WordRow wordLength={wordLength} formId={0} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} handleBtnClick={handleBtnClick}/>
+      <WordRow wordLength={wordLength} formId={1} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} handleBtnClick={handleBtnClick}/>
+      <WordRow wordLength={wordLength} formId={2} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} handleBtnClick={handleBtnClick}/>
+      <WordRow wordLength={wordLength} formId={3} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} handleBtnClick={handleBtnClick}/>
+      <WordRow wordLength={wordLength} formId={4} guessNr={guesses.length} inputWord={inputWord} setInputWord={setInputWord} handleBtnClick={handleBtnClick}/>
       <button
         type="submit"
+        value="submit"
         form={'wordRow' + guesses.length}
         className="stdBtn"
-        onClick={handleBtnClick}
+        // onSubmit={handleBtnClick}
       >Validate</button>
     </div>
   );
