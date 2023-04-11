@@ -1,5 +1,5 @@
 import './WordRow.css';
-export default function WordRow({ wordLength, formId, guessNr }) {
+export default function WordRow({ wordLength, formId, guessNr, inputWord, setInputWord }) {
 
   const renderLetters = (isActive) => {
     const letters = [];
@@ -10,11 +10,20 @@ export default function WordRow({ wordLength, formId, guessNr }) {
           type="text" required
           maxLength={1}
           key={'letter' + i}
+          value={inputWord[i]}
+          onChange={event => handleInputChange(event, i)}
         ></input>
       );
     }
     return letters;
   };
+
+  const handleInputChange = (ev, i) => {
+    const newState = [...inputWord];
+    newState[i] = ev.target.value;
+    console.log(newState);
+    setInputWord(newState);
+  }
 
   if (formId !== guessNr) {
     return (
