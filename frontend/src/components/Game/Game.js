@@ -4,26 +4,24 @@ import WordRow from './WordRow';
 export default function Game({ wordLength, gameId }) {
   const [gameState, setGameState] = useState('playing');
   const [guesses, setGuesses] = useState([]);
-  const [guessVerification, setGuessVerification] = useState([]);
   const [result, setResult] = useState(null);
   const [name, setName] = useState('');
 
-  console.log('Verification: ', guessVerification);
   console.log('guesses state i game: ', guesses);
 
   // Five rows of guesses, each row having the length of wordLength.
-  // const [inputWord, setInputWords] = useState(Array(5).fill(Array(wordLength).fill("")));
-  const [inputWords, setInputWords] = useState(
+  const [lettersOfWords, setLettersOfWords] = useState(
     Array.from({ length: 5 }, () =>
       Array.from({ length: wordLength }, () => '')
     )
   );
-  console.log(inputWords);
+  console.log(lettersOfWords);
+  console.log(gameId);
 
   async function handleBtnClick(event) {
     event.preventDefault();
     event.stopPropagation();
-    const guessStr = inputWords[guesses.length].join("").toUpperCase();
+    const guessStr = lettersOfWords[guesses.length].join("");
     console.log(guessStr);
     // event.nativeEvent.stopImmediatePropagation();
     const res = await fetch(`api/games/${gameId}/guesses`, {
@@ -39,9 +37,10 @@ export default function Game({ wordLength, gameId }) {
       setResult(data.result);
       setGameState('won');
     }
+    console.log('på frontend, gameID:', gameId);
+    console.log('på frontend, data:', data);
 
-    setGuesses(data.guesses);
-    setGuessVerification({arr: guessVerification.arr.concat(data.guessVerification)});
+    setGuesses(data.guesses)
   }
 
   return (
@@ -49,46 +48,41 @@ export default function Game({ wordLength, gameId }) {
       <WordRow
         wordLength={wordLength}
         formId={0}
-        guessNr={guesses.length}
-        guessVerification={guessVerification}
-        inputWords={inputWords}
-        setInputWords={setInputWords}
+        guesses={guesses}
+        lettersOfWords={lettersOfWords}
+        setLettersOfWords={setLettersOfWords}
         handleBtnClick={handleBtnClick}
       />
       <WordRow
         wordLength={wordLength}
         formId={1}
-        guessNr={guesses.length}
-        guessVerification={guessVerification}
-        inputWords={inputWords}
-        setInputWords={setInputWords}
+        guesses={guesses}
+        lettersOfWords={lettersOfWords}
+        setLettersOfWords={setLettersOfWords}
         handleBtnClick={handleBtnClick}
       />
       <WordRow
         wordLength={wordLength}
         formId={2}
-        guessNr={guesses.length}
-        guessVerification={guessVerification}
-        inputWords={inputWords}
-        setInputWords={setInputWords}
+        guesses={guesses}
+        lettersOfWords={lettersOfWords}
+        setLettersOfWords={setLettersOfWords}
         handleBtnClick={handleBtnClick}
       />
       <WordRow
         wordLength={wordLength}
         formId={3}
-        guessNr={guesses.length}
-        guessVerification={guessVerification}
-        inputWords={inputWords}
-        setInputWords={setInputWords}
+        guesses={guesses}
+        lettersOfWords={lettersOfWords}
+        setLettersOfWords={setLettersOfWords}
         handleBtnClick={handleBtnClick}
       />
       <WordRow
         wordLength={wordLength}
         formId={4}
-        guessNr={guesses.length}
-        guessVerification={guessVerification}
-        inputWords={inputWords}
-        setInputWords={setInputWords}
+        guesses={guesses}
+        lettersOfWords={lettersOfWords}
+        setLettersOfWords={setLettersOfWords}
         handleBtnClick={handleBtnClick}
       />
       <button
@@ -96,7 +90,7 @@ export default function Game({ wordLength, gameId }) {
         value="submit"
         form={'wordRow' + guesses.length}
         className="stdBtn"
-        // onSubmit={handleBtnClick}
+      // onSubmit={handleBtnClick}
       >
         Validate
       </button>

@@ -30,11 +30,7 @@ app.post('/api/games/:id/guesses', (req, res) => {
   const game = GAMES.find((savedGame) => savedGame.id == req.params.id);
   if (game) {
     const guess = req.body.guess;
-    game.guesses.push(guess);
-    console.log('GuessesArray: ', GAMES);
-    console.log('Incoming request body: ', guess);
-    console.log('correct ord: ', game.correctWord);
-    console.log(evalWord(game.correctWord, guess));
+    game.guesses.push({ guessStr: guess, evalGuess: evalWord(game.correctWord, guess) });
 
     if (guess === game.correctWord) {
       game.endTime = new Date();
@@ -48,7 +44,6 @@ app.post('/api/games/:id/guesses', (req, res) => {
       res.status(201).json({
         guesses: game.guesses,
         correct: false,
-        guessVerification: evalWord(game.correctWord, guess),
       });
     }
   } else {

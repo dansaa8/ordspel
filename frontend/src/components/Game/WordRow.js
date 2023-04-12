@@ -1,34 +1,44 @@
 import './WordRow.css';
-export default function WordRow({ wordLength, formId, guessNr, guessVerification, inputWords, setInputWords, handleBtnClick }) {
+import classNames from "classnames";
 
+export default function WordRow({ wordLength, formId, guesses, lettersOfWords, setLettersOfWords, handleBtnClick }) {
+
+  const currentGuess = guesses.length;
   const renderLetters = (isActive) => {
-    const letters = [];
+
+    const className = classNames({
+
+    })
+
+
+
+    const letterInputs = [];
     for (let i = 0; i < wordLength; i++) {
-      letters.push(
+      letterInputs.push(
         <input
           className={`letterInput ${isActive ? 'active' : 'inactive'}`}
           type="text" required
           maxLength={1}
           key={'letter' + i}
-          value={inputWords[formId][i]}
+          value={lettersOfWords[formId][i]}
           onChange={event => handleInputChange(event, i)}
         ></input>
       );
     }
-    return letters;
-  };
+    return letterInputs;
+  }
 
   const handleInputChange = (ev, i) => {
-    const newState = [...inputWords];
-    newState[formId][i] = ev.target.value;
-    setInputWords(newState);
+    const newState = [...lettersOfWords];
+    newState[formId][i] = ev.target.value.toUpperCase();
+    setLettersOfWords(newState);
   }
 
-  if (formId < guessNr) {
+  // if (formId < currentGuess) {
 
-  }
+  // } 
 
-  if (formId > guessNr) {
+  if (formId > currentGuess) {
     return (
       <form id={'wordRow' + formId}>
         <fieldset className="wordCtr" disabled={true}>
@@ -43,4 +53,5 @@ export default function WordRow({ wordLength, formId, guessNr, guessVerification
       </form>
     );
   }
+
 }
