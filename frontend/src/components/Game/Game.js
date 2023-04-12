@@ -47,7 +47,7 @@ export default function Game({ wordLength, gameId }) {
     <div className="gameCtr">
       <WordRow
         wordLength={wordLength}
-        formId={0}
+        formNr={0}
         guesses={guesses}
         lettersOfWords={lettersOfWords}
         setLettersOfWords={setLettersOfWords}
@@ -55,7 +55,7 @@ export default function Game({ wordLength, gameId }) {
       />
       <WordRow
         wordLength={wordLength}
-        formId={1}
+        formNr={1}
         guesses={guesses}
         lettersOfWords={lettersOfWords}
         setLettersOfWords={setLettersOfWords}
@@ -63,7 +63,7 @@ export default function Game({ wordLength, gameId }) {
       />
       <WordRow
         wordLength={wordLength}
-        formId={2}
+        formNr={2}
         guesses={guesses}
         lettersOfWords={lettersOfWords}
         setLettersOfWords={setLettersOfWords}
@@ -71,7 +71,7 @@ export default function Game({ wordLength, gameId }) {
       />
       <WordRow
         wordLength={wordLength}
-        formId={3}
+        formNr={3}
         guesses={guesses}
         lettersOfWords={lettersOfWords}
         setLettersOfWords={setLettersOfWords}
@@ -79,7 +79,7 @@ export default function Game({ wordLength, gameId }) {
       />
       <WordRow
         wordLength={wordLength}
-        formId={4}
+        formNr={4}
         guesses={guesses}
         lettersOfWords={lettersOfWords}
         setLettersOfWords={setLettersOfWords}

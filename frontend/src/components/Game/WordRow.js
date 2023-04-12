@@ -1,26 +1,20 @@
 import './WordRow.css';
 import classNames from "classnames";
 
-export default function WordRow({ wordLength, formId, guesses, lettersOfWords, setLettersOfWords, handleBtnClick }) {
-
+export default function WordRow({ wordLength, formNr, guesses, lettersOfWords, setLettersOfWords, handleBtnClick }) {
+  console.log('guesses i wordRow: ', guesses);
   const currentGuess = guesses.length;
-  const renderLetters = (isActive) => {
-
-    const className = classNames({
-
-    })
-
-
-
+  const renderLetters = (isActive, isEvaluated) => {
     const letterInputs = [];
     for (let i = 0; i < wordLength; i++) {
       letterInputs.push(
         <input
-          className={`letterInput ${isActive ? 'active' : 'inactive'}`}
+          className={`letterInput ${isActive ? 'active' : 'inactive'} 
+          ${isEvaluated ? {} : ''} `}
           type="text" required
           maxLength={1}
           key={'letter' + i}
-          value={lettersOfWords[formId][i]}
+          value={lettersOfWords[formNr][i]}
           onChange={event => handleInputChange(event, i)}
         ></input>
       );
@@ -30,26 +24,33 @@ export default function WordRow({ wordLength, formId, guesses, lettersOfWords, s
 
   const handleInputChange = (ev, i) => {
     const newState = [...lettersOfWords];
-    newState[formId][i] = ev.target.value.toUpperCase();
+    newState[formNr][i] = ev.target.value.toUpperCase();
     setLettersOfWords(newState);
   }
 
-  // if (formId < currentGuess) {
 
-  // } 
-
-  if (formId > currentGuess) {
+  if (formNr === currentGuess) {
     return (
-      <form id={'wordRow' + formId}>
+      <form id={'wordRow' + formNr} onSubmit={handleBtnClick}>
+        <fieldset className="wordCtr">{renderLetters(true, false)}</fieldset>
+      </form>
+    );
+  }
+
+  else if (formNr < currentGuess) {
+    return (
+      <form id={'wordRow' + formNr}>
         <fieldset className="wordCtr" disabled={true}>
-          {renderLetters(false)}
+          {renderLetters(false, true)}
         </fieldset>
       </form>
     );
-  } else {
+  } else if (formNr > currentGuess) {
     return (
-      <form id={'wordRow' + formId} onSubmit={handleBtnClick}>
-        <fieldset className="wordCtr">{renderLetters(true)}</fieldset>
+      <form id={'wordRow' + formNr}>
+        <fieldset className="wordCtr" disabled={true}>
+          {renderLetters(false, false)}
+        </fieldset>
       </form>
     );
   }

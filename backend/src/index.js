@@ -30,7 +30,7 @@ app.post('/api/games/:id/guesses', (req, res) => {
   const game = GAMES.find((savedGame) => savedGame.id == req.params.id);
   if (game) {
     const guess = req.body.guess;
-    game.guesses.push({ guessStr: guess, evalGuess: evalWord(game.correctWord, guess) });
+    game.guesses.push({ string: guess, evaluation: evalWord(game.correctWord, guess) });
 
     if (guess === game.correctWord) {
       game.endTime = new Date();
