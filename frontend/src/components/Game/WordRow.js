@@ -1,33 +1,46 @@
 import './WordRow.css';
-import classNames from "classnames";
 
-export default function WordRow({ wordLength, formNr, guesses, lettersOfWords, setLettersOfWords, handleBtnClick }) {
+export default function WordRow({
+  wordLength,
+  formNr,
+  guesses,
+  lettersOfWords,
+  setLettersOfWords,
+  handleBtnClick,
+}) {
   console.log('guesses i wordRow: ', guesses);
   const currentGuess = guesses.length;
+
   const renderLetters = (isActive, isEvaluated) => {
     const letterInputs = [];
     for (let i = 0; i < wordLength; i++) {
       letterInputs.push(
         <input
-          className={`letterInput ${isActive ? 'active' : 'inactive'} 
-          ${isEvaluated ? {} : ''} `}
-          type="text" required
+          className={`letterInput ${isActive ? 'active' : 'inactive'} ${
+            isEvaluated ? setColor(i) : ''
+          } `}
+          type="text"
+          required
           maxLength={1}
           key={'letter' + i}
           value={lettersOfWords[formNr][i]}
-          onChange={event => handleInputChange(event, i)}
+          onChange={(event) => handleInputChange(event, i)}
         ></input>
       );
     }
     return letterInputs;
+  };
+
+  function setColor(i) {
+    console.log('inuti setColor(): ', guesses[formNr].evaluation[i]);
+    return guesses[formNr].evaluation[i].result;
   }
 
   const handleInputChange = (ev, i) => {
     const newState = [...lettersOfWords];
     newState[formNr][i] = ev.target.value.toUpperCase();
     setLettersOfWords(newState);
-  }
-
+  };
 
   if (formNr === currentGuess) {
     return (
@@ -35,9 +48,7 @@ export default function WordRow({ wordLength, formNr, guesses, lettersOfWords, s
         <fieldset className="wordCtr">{renderLetters(true, false)}</fieldset>
       </form>
     );
-  }
-
-  else if (formNr < currentGuess) {
+  } else if (formNr < currentGuess) {
     return (
       <form id={'wordRow' + formNr}>
         <fieldset className="wordCtr" disabled={true}>
@@ -54,5 +65,4 @@ export default function WordRow({ wordLength, formNr, guesses, lettersOfWords, s
       </form>
     );
   }
-
 }
