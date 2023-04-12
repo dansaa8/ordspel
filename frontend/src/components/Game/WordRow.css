@@ -30,3 +30,15 @@
 .letterInput.inactive {
   background-color: #f2f2f2;
 }
+
+.misplaced {
+  background-color: #FFDE67 !important;
+}
+
+.incorrect {
+  background-color: #FF6C6C !important;
+}
+
+.correct {
+  background-color: #75F482 !important;
+}

@@ -12,7 +12,7 @@ const GAMES = [];
 app.post('/api/games', (req, res) => {
   console.log(req.body);
   const newGame = {
-    correctWord: randomWord(req.body),
+    correctWord: randomWord(req.body).toUpperCase(),
     guesses: [],
     id: uuid.v4(),
     startTime: new Date(),
@@ -21,7 +21,9 @@ app.post('/api/games', (req, res) => {
   GAMES.push(newGame);
   // 201 created success status response code indicates that
   // the request has succeeded and has led to the creation of a resource.
-  res.status(201).json({ id: newGame.id, wordLength: newGame.correctWord.length});
+  res
+    .status(201)
+    .json({ id: newGame.id, wordLength: newGame.correctWord.length });
 });
 
 app.post('/api/games/:id/guesses', (req, res) => {
@@ -29,6 +31,10 @@ app.post('/api/games/:id/guesses', (req, res) => {
   if (game) {
     const guess = req.body.guess;
     game.guesses.push(guess);
+    console.log('GuessesArray: ', GAMES);
+    console.log('Incoming request body: ', guess);
+    console.log('correct ord: ', game.correctWord);
+    console.log(evalWord(game.correctWord, guess));
 
     if (guess === game.correctWord) {
       game.endTime = new Date();
@@ -42,6 +48,7 @@ app.post('/api/games/:id/guesses', (req, res) => {
       res.status(201).json({
         guesses: game.guesses,
         correct: false,
+        guessVerification: evalWord(game.correctWord, guess),
       });
     }
   } else {
