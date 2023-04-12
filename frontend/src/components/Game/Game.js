@@ -7,22 +7,17 @@ export default function Game({ wordLength, gameId }) {
   const [result, setResult] = useState(null);
   const [name, setName] = useState('');
 
-  console.log('guesses state i game: ', guesses);
-
   // Five rows of guesses, each row having the length of wordLength.
   const [lettersOfWords, setLettersOfWords] = useState(
     Array.from({ length: 5 }, () =>
       Array.from({ length: wordLength }, () => '')
     )
   );
-  console.log(lettersOfWords);
-  console.log(gameId);
 
   async function handleBtnClick(event) {
     event.preventDefault();
     event.stopPropagation();
-    const guessStr = lettersOfWords[guesses.length].join("");
-    console.log(guessStr);
+    const guessStr = lettersOfWords[guesses.length].join('');
     // event.nativeEvent.stopImmediatePropagation();
     const res = await fetch(`api/games/${gameId}/guesses`, {
       method: 'post',
@@ -37,10 +32,7 @@ export default function Game({ wordLength, gameId }) {
       setResult(data.result);
       setGameState('won');
     }
-    console.log('på frontend, gameID:', gameId);
-    console.log('på frontend, data:', data);
-
-    setGuesses(data.guesses)
+    setGuesses(data.guesses);
   }
 
   return (
@@ -90,7 +82,7 @@ export default function Game({ wordLength, gameId }) {
         value="submit"
         form={'wordRow' + guesses.length}
         className="stdBtn"
-      // onSubmit={handleBtnClick}
+        // onSubmit={handleBtnClick}
       >
         Validate
       </button>

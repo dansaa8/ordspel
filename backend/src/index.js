@@ -10,7 +10,6 @@ app.use(express.json());
 const GAMES = [];
 
 app.post('/api/games', (req, res) => {
-  console.log(req.body);
   const newGame = {
     correctWord: randomWord(req.body).toUpperCase(),
     guesses: [],

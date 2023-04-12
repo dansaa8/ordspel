@@ -8,7 +8,6 @@ export default function WordRow({
   setLettersOfWords,
   handleBtnClick,
 }) {
-  console.log('guesses i wordRow: ', guesses);
   const currentGuess = guesses.length;
 
   const renderLetters = (isActive, isEvaluated) => {
@@ -32,7 +31,6 @@ export default function WordRow({
   };
 
   function setColor(i) {
-    console.log('inuti setColor(): ', guesses[formNr].evaluation[i]);
     return guesses[formNr].evaluation[i].result;
   }
 

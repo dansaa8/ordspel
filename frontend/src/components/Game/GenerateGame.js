@@ -4,8 +4,6 @@ import Game from './Game';
 export default function GenerateGame({ setPhase, settings }) {
   const [gameId, setGameId] = useState(null);
   const [wordLength, setWordLength] = useState(0);
-  console.log(settings);
-  console.log(JSON.stringify(settings));
 
   useEffect(() => {
     const startGame = async () => {
@@ -24,7 +22,6 @@ export default function GenerateGame({ setPhase, settings }) {
     startGame();
   }, []);
 
-  console.log(wordLength);
   if (gameId && wordLength) {
     return (
       <div className="App">
