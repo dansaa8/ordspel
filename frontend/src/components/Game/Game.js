@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import WordRow from './WordRow';
+import Highscore from './Highscore';
 
-export default function Game({ wordLength, gameId }) {
+export default function Game({ wordLength, gameId, setPhase }) {
   const [gameState, setGameState] = useState('playing');
   const [guesses, setGuesses] = useState([]);
   const [result, setResult] = useState(null);
   const [name, setName] = useState('');
+  const maxGuesses = 5;
 
-  // Five rows of guesses, each row having the length of wordLength.
+  console.log('(from Game.js), current GameState: ', gameState);
+  // x rows(val of maxguesses) of guesses, each row having the length of wordLength.
   const [lettersOfWords, setLettersOfWords] = useState(
-    Array.from({ length: 5 }, () =>
+    Array.from({ length: maxGuesses }, () =>
       Array.from({ length: wordLength }, () => '')
     )
   );
@@ -35,20 +38,20 @@ export default function Game({ wordLength, gameId }) {
     setGuesses(data.guesses);
   }
 
-  const maxGuesses = 5;
-
   function renderWordRows(rowsCount) {
     const rows = [];
     for (let i = 0; i < rowsCount; i++) {
-      const newRow =
+      const newRow = (
         <WordRow
-          wordLength={wordLength}
+          key={i}
           formNr={i}
           guesses={guesses}
           lettersOfWords={lettersOfWords}
           setLettersOfWords={setLettersOfWords}
           handleBtnClick={handleBtnClick}
+          gameState={gameState}
         />
+      );
       rows.push(newRow);
     }
     return rows;
@@ -62,10 +65,16 @@ export default function Game({ wordLength, gameId }) {
         value="submit"
         form={'wordRow' + guesses.length}
         className="stdBtn"
-      // onSubmit={handleBtnClick}
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
       >
         Validate
       </button>
+      {(function () {
+        if (gameState === 'won') {
+          return <Highscore result={result} guesses={guesses}/>;
+        }
+      })()}
     </div>
   );
 }

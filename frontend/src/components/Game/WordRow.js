@@ -1,14 +1,15 @@
 import './WordRow.css';
 
 export default function WordRow({
-  wordLength,
   formNr,
   guesses,
   lettersOfWords,
   setLettersOfWords,
   handleBtnClick,
+  gameState,
 }) {
   const currentGuess = guesses.length;
+  const wordLength = lettersOfWords[0].length;
 
   const renderLetters = (isActive, isEvaluated) => {
     const letterInputs = [];
@@ -40,7 +41,14 @@ export default function WordRow({
     setLettersOfWords(newState);
   };
 
-  if (formNr === currentGuess) {
+  if (formNr === currentGuess && gameState === 'won') {
+    return (
+      <form id={'wordRow' + formNr} onSubmit={handleBtnClick}>
+        <fieldset className="wordCtr">{renderLetters(false, false)}</fieldset>
+      </form>
+    );
+  }
+  else if (formNr === currentGuess) {
     return (
       <form id={'wordRow' + formNr} onSubmit={handleBtnClick}>
         <fieldset className="wordCtr">{renderLetters(true, false)}</fieldset>
