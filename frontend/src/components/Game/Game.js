@@ -6,7 +6,6 @@ export default function Game({ wordLength, gameId, setPhase }) {
   const [gameState, setGameState] = useState('playing');
   const [guesses, setGuesses] = useState([]);
   const [result, setResult] = useState(null);
-  const [name, setName] = useState('');
   const maxGuesses = 5;
 
   console.log('(from Game.js), current GameState: ', gameState);
@@ -73,7 +72,21 @@ export default function Game({ wordLength, gameId, setPhase }) {
       {(function () {
         if (gameState === 'won') {
           return (
-            <Highscore result={result} guesses={guesses} gameId={gameId} setPhase={setPhase} />
+            <Highscore
+              result={result}
+              guesses={guesses}
+              gameId={gameId}
+              setPhase={setPhase}
+            />
+          );
+        } else if (guesses.length === maxGuesses) {
+          return (
+            <div className='modal'>
+              <div className='modal-content lost-game'>
+              <h1>Sorry, you lost the game.</h1>
+              <button className='stdBtn' onClick={() => {setPhase('entry')}}>Back to main</button>
+              </div>
+            </div>
           );
         }
       })()}

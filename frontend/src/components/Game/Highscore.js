@@ -24,7 +24,7 @@ export default function Highscore({ result, guesses, gameId, setPhase }) {
   return (
     <div className="modal">
       <div className="modal-content won-game">
-        <h1>Congrats you won the game</h1>
+        <h1>Congrats, you won the game!</h1>
         <p>The correct word was {guesses.at(-1).string}</p>
         <p>Guesses: {guesses.length}</p>
         <p>Duration: {duration}s</p>
