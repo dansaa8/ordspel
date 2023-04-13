@@ -72,7 +72,9 @@ export default function Game({ wordLength, gameId, setPhase }) {
       </button>
       {(function () {
         if (gameState === 'won') {
-          return <Highscore result={result} guesses={guesses}/>;
+          return (
+            <Highscore result={result} guesses={guesses} gameId={gameId} setPhase={setPhase} />
+          );
         }
       })()}
     </div>

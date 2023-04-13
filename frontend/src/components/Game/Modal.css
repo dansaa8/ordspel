@@ -23,3 +23,11 @@
   display: flex;
   align-items: center;
 }
+
+.lost-game {
+  background-color: #FF6C6C !important;
+}
+
+.won-game {
+  background-color: #d6fdda !important;
+}
