@@ -35,54 +35,34 @@ export default function Game({ wordLength, gameId }) {
     setGuesses(data.guesses);
   }
 
+  const maxGuesses = 5;
+
+  function renderWordRows(rowsCount) {
+    const rows = [];
+    for (let i = 0; i < rowsCount; i++) {
+      const newRow =
+        <WordRow
+          wordLength={wordLength}
+          formNr={i}
+          guesses={guesses}
+          lettersOfWords={lettersOfWords}
+          setLettersOfWords={setLettersOfWords}
+          handleBtnClick={handleBtnClick}
+        />
+      rows.push(newRow);
+    }
+    return rows;
+  }
+
   return (
     <div className="gameCtr">
-      <WordRow
-        wordLength={wordLength}
-        formNr={0}
-        guesses={guesses}
-        lettersOfWords={lettersOfWords}
-        setLettersOfWords={setLettersOfWords}
-        handleBtnClick={handleBtnClick}
-      />
-      <WordRow
-        wordLength={wordLength}
-        formNr={1}
-        guesses={guesses}
-        lettersOfWords={lettersOfWords}
-        setLettersOfWords={setLettersOfWords}
-        handleBtnClick={handleBtnClick}
-      />
-      <WordRow
-        wordLength={wordLength}
-        formNr={2}
-        guesses={guesses}
-        lettersOfWords={lettersOfWords}
-        setLettersOfWords={setLettersOfWords}
-        handleBtnClick={handleBtnClick}
-      />
-      <WordRow
-        wordLength={wordLength}
-        formNr={3}
-        guesses={guesses}
-        lettersOfWords={lettersOfWords}
-        setLettersOfWords={setLettersOfWords}
-        handleBtnClick={handleBtnClick}
-      />
-      <WordRow
-        wordLength={wordLength}
-        formNr={4}
-        guesses={guesses}
-        lettersOfWords={lettersOfWords}
-        setLettersOfWords={setLettersOfWords}
-        handleBtnClick={handleBtnClick}
-      />
+      {renderWordRows(maxGuesses)}
       <button
         type="submit"
         value="submit"
         form={'wordRow' + guesses.length}
         className="stdBtn"
-        // onSubmit={handleBtnClick}
+      // onSubmit={handleBtnClick}
       >
         Validate
       </button>
