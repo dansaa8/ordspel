@@ -2,11 +2,13 @@ import { useState } from 'react';
 import WordRow from './WordRow';
 import Highscore from './Highscore';
 
-export default function Game({ wordLength, gameId, setPhase }) {
+export default function Game({ wordLength, gameId, setPhase, settings }) {
   const [gameState, setGameState] = useState('playing');
   const [guesses, setGuesses] = useState([]);
   const [result, setResult] = useState(null);
   const maxGuesses = 5;
+
+  console.log(settings);
 
   console.log('(from Game.js), current GameState: ', gameState);
   // x rows(val of maxguesses) of guesses, each row having the length of wordLength.
@@ -75,6 +77,7 @@ export default function Game({ wordLength, gameId, setPhase }) {
             <Highscore
               result={result}
               guesses={guesses}
+              settings={settings}
               gameId={gameId}
               setPhase={setPhase}
             />

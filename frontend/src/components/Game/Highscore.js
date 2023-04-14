@@ -1,6 +1,6 @@
 import './Modal.css';
 import { useState } from 'react';
-export default function Highscore({ result, guesses, gameId, setPhase }) {
+export default function Highscore({ result, guesses, settings, gameId, setPhase }) {
   const [name, setName] = useState();
   const handleSubmit = async (ev) => {
     ev.preventDefault();
