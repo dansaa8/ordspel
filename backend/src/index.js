@@ -1,11 +1,16 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import fs from 'fs/promises';
 import randomWord from './utils/randomWord.js';
 import evalWord from './utils/evalWord.js';
 import * as uuid from 'uuid';
+import { Highscore } from './models.js';
 
 const app = express();
 app.use(express.json());
+
+//konfigurera express, så att den ska leta efter statiska i frontendmappens build mapp
+app.use(express.static('../frontend/build'));
 
 const GAMES = [];
 
@@ -29,7 +34,10 @@ app.post('/api/games/:id/guesses', (req, res) => {
   const game = GAMES.find((savedGame) => savedGame.id == req.params.id);
   if (game) {
     const guess = req.body.guess;
-    game.guesses.push({ string: guess, evaluation: evalWord(game.correctWord, guess) });
+    game.guesses.push({
+      string: guess,
+      evaluation: evalWord(game.correctWord, guess),
+    });
 
     if (guess === game.correctWord) {
       game.endTime = new Date();
@@ -50,23 +58,31 @@ app.post('/api/games/:id/guesses', (req, res) => {
   }
 });
 
-//konfigurera express, så att den ska leta efter statiska i frontendmappens
-//build mapp
-app.use(express.static('../frontend/build'));
-
 const fakeHigscoreDatabase = [1, 2, 3];
-app.get('/highscores', (req, res) => {
-  res.status(200).json({
-    data: fakeHigscoreDatabase,
-  });
+
+// If user submits his/her highscore
+app.post('/api/games/:id/highscore', async (req, res) => {
+  const conn = await mongoose.connect('mongodb://127.0.0.1:27017/ordspel');
+  const game = GAMES.find((savedGame) => savedGame.id == req.params.id);
+  if (game) {
+    console.log(req.body);
+    const highscore = new Highscore(req.body);
+    await highscore.save();
+    res.status(201).json(highscore);
+  } else {
+    res.status(404).end();
+  }
+  conn.disconnect;
 });
 
-app.post('/highscores', (req, res) => {
-  fakeHigscoreDatabase.push(req.body);
+// ?
+app.get('/api/highscores', async (req, res) => {
+  const highscores = await Highscore.find();
 
-  // i REST-API:er brukar man returnera status 201 (som betyder created)
-  // och innehållet, det man har skapat, dvs req.body.
-  res.status(201).json({ data: req.body });
+  //OK success response code, indicates that req is successful
+  res.status(200).json({
+    data: highscores,
+  });
 });
 
 // app.get('/', async (req, res) => {

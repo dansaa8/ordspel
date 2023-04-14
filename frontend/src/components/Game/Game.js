@@ -8,16 +8,15 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
   const [result, setResult] = useState(null);
   const maxGuesses = 5;
 
-  console.log(settings);
+  console.log('gameId: ', gameId);
 
-  console.log('(from Game.js), current GameState: ', gameState);
   // x rows(val of maxguesses) of guesses, each row having the length of wordLength.
   const [lettersOfWords, setLettersOfWords] = useState(
     Array.from({ length: maxGuesses }, () =>
       Array.from({ length: wordLength }, () => '')
     )
   );
-
+  
   async function handleBtnClick(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -76,7 +75,6 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
           return (
             <Highscore
               result={result}
-              guesses={guesses}
               settings={settings}
               gameId={gameId}
               setPhase={setPhase}
