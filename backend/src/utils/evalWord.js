@@ -1,4 +1,4 @@
-export default function guessWord(target, guess) {
+export default function evalWord(target, guess) {
     guess = guess.toUpperCase().split('');
     target = target.toUpperCase().split('');
     const wordLength = guess.length;
