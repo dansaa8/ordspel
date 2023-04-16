@@ -50,6 +50,7 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
             value={name}
             onChange={(ev) => setName(ev.target.value)}
             placeholder="Your name"
+            required
           />
           <button type="submit" className="stdBtn">
             Post highscore
