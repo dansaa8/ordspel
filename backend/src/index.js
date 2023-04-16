@@ -1,10 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import fs from 'fs/promises';
-import randomWord from './utils/randomWord.js';
-import evalWord from './utils/evalWord.js';
-import * as uuid from 'uuid';
-import { Highscore } from './schemas.js';
 import GAME_API from './routes/GAME_API.js';
 import highscores from './routes/highscores.js';
 
