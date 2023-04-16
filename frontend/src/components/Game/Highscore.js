@@ -23,7 +23,6 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
     };
 
     console.log(highscore);
-
     //`http://localhost:5080/api/games/${gameId}/highscore` - efter build
     await fetch(`api/games/${gameId}/highscore`, {
       method: 'post',

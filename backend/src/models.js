@@ -13,24 +13,24 @@ const Highscore = mongoose.model('Highscore', {
 
 export { Highscore };
 
-async function run() {
-  const conn = await mongoose.connect('mongodb://127.0.0.1:27017/ordspel'); //anslutningssträng
+// async function run() {
+//   const conn = await mongoose.connect('mongodb://127.0.0.1:27017/ordspel'); //anslutningssträng
 
-  const highscore = new Highscore({
-    name: 'Daniel',
-    time: 12.34,
-    guesses: ['SOL', 'ORD', 'RÖD'],
-    settings: {
-      wordLength: 'any',
-      repeatingChars: true,
-    },
-  });
+//   const highscore = new Highscore({
+//     name: 'Daniel',
+//     time: 12.34,
+//     guesses: ['SOL', 'ORD', 'RÖD'],
+//     settings: {
+//       wordLength: 'any',
+//       repeatingChars: true,
+//     },
+//   });
 
-  await highscore.save();
+//   await highscore.save();
 
-  const highscores = await Highscore.find(); //Kommer ge oss alla våra highscores.
-  console.log(highscores);
+//   const highscores = await Highscore.find(); //Kommer ge oss alla våra highscores.
+//   console.log(highscores);
 
-  conn.disconnect();
-}
-run();
+//   conn.disconnect();
+// }
+// run();

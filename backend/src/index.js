@@ -6,6 +6,7 @@ import evalWord from './utils/evalWord.js';
 import * as uuid from 'uuid';
 import { Highscore } from './models.js';
 
+
 const app = express();
 app.use(express.json());
 
@@ -57,6 +58,7 @@ app.post('/api/games/:id/guesses', (req, res) => {
     res.status(404).end();
   }
 });
+
 
 const fakeHigscoreDatabase = [1, 2, 3];
 
