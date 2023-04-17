@@ -1,13 +1,15 @@
 import express from 'express';
-import GAME_API from './routes/GAME_API.js';
+// import siteNavigation from './routes/siteNavigation.js';
+import gameComm from './routes/gameComm.js';
 import highscores from './routes/highscores.js';
-
 
 
 const app = express();
 app.use(express.json());
+app.set('view engine', 'ejs');
 
-app.use('/api/games', GAME_API);
+// app.use('/', siteNavigation);
+app.use('/api/games', gameComm);
 app.use('/api/highscores', highscores);
 
 //konfigurera express, så att den ska leta efter statiska i frontendmappens build mapp
