@@ -1,6 +1,6 @@
 import fakeAPI from './fakeAPI.js';
 
-export default function randomWord(settings) {
+export default function randWord(settings) {
   let words = fakeAPI();
   const repeatChars = settings.repeatingChars;
 
