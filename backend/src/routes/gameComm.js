@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import * as uuid from 'uuid';
-import randomWord from '../utils/randomWord.js';
+import randWord from '../utils/randWord.js';
 import evalWord from '../utils/evalWord.js';
 import { Highscore } from '../schemas.js';
 
@@ -12,7 +12,7 @@ const GAMES = [];
 
 router.post('/', (req, res) => {
   const newGame = {
-    correctWord: randomWord(req.body).toUpperCase(),
+    correctWord: randWord(req.body).toUpperCase(),
     guesses: [],
     id: uuid.v4(),
     startTime: new Date(),
