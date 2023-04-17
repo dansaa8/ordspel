@@ -5,6 +5,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
+    "css:build": "sass --no-source-map src/scss/main.scss static/main.css",
+    "css:watch": "sass --no-source-map --watch src/scss/main.scss static/main.css",
     "dev": "nodemon --watch src/index.js",
     "start": "node src/index.js"
   },
@@ -12,7 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "sass": "^1.62.0"
   },
   "dependencies": {
     "ejs": "^3.1.9",
