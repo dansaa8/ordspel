@@ -1,7 +1,7 @@
-import fakeAPI from './fakeAPI.js';
+import wordList from './wordList.js';
 
 export default function randWord(settings) {
-  let words = fakeAPI();
+  let words = wordList;
   const repeatChars = settings.repeatingChars;
 
   if (settings.wordLength != 'any') {
