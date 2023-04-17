@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "css:build": "sass --no-source-map src/scss/main.scss static/main.css",
-    "css:watch": "sass --no-source-map --watch src/scss/main.scss static/main.css",
+    "sass": "sass --no-source-map src/scss/main.scss static/main.css",
+    "watch": "sass --no-source-map --watch src/scss/main.scss static/main.css",
     "dev": "nodemon --watch src/index.js",
     "start": "node src/index.js"
   },
@@ -20,6 +20,7 @@
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
     "mongoose": "^7.0.3",
     "uuid": "^9.0.0"
   }
