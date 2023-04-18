@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+// import './App.css';
 import Entry from './components/Entry';
 import Settings from './components/Settings/Settings';
 import GenerateGame from './components/Game/GenerateGame';
