@@ -1,9 +1,225 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Roboto;
-  font-size: 18px;
+body,
+html {
+  height: 100%;
+  padding: 2px;
+}
+
+.stdCtr.entry {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: stretch;
+}
+
+.stdCtr.game {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: stretch;
+}
+
+.modal {
+  display: block;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #ffffff;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  height: 80%;
+  display: flex;
+  align-items: center;
+  animation: modal-enter 1s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lost-game {
+  background-color: #facfcf !important;
+}
+
+.won-game {
+  background-color: #e0fae2 !important;
+}
+
+@keyframes modal-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* .repCharsSelector {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  } */
+.inputRC {
+  display: block;
+  width: 100%;
+}
+
+.stdCtr.settings {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: stretch;
+}
+
+.settingsBox {
+  width: 100%;
+  border: 1px solid #b9b9b9;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: center;
+  align-items: start;
+}
+
+.cancelBtn {
+  background-color: rgb(119, 0, 0) !important;
+}
+
+.optionsTxt {
+  width: 100%;
+  font-size: 25px;
+  color: #8a8a8a;
+  flex: 0;
+}
+
+.wordLengthSelector {
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  /* width: 80%; */
+  /* margin-left: auto; */
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b9b9b9;
+  border-radius: 6px;
+}
+
+/* 
+  .wordLengthSelector:after {
+    content: '';
+    width: 65%;
+    border-bottom: solid 1px #9e9d9d;
+    position: relative;
+    left: 0;
+    top: 50px;
+
+    margin: auto;
+  } */
+.wordLengthBtn {
+  background-color: #2b2b2b !important;
+  color: white !important;
+}
+
+.dropdown-menu.show {
+  min-width: inherit;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+}
+
+.dropdown-toggle {
+  width: 60px;
+}
+
+.inputWL {
+  display: none;
+}
+
+.labelWL {
+  color: black;
+  border: 1px solid black;
+  text-align: center;
+  width: 60px;
+  place-items: center;
+  border-radius: 15px;
+  z-index: 5;
+  background-color: #c8c8c8;
+}
+
+.letterInput {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 6px;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.wordCtr {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.letterInput {
+  border: none;
+}
+
+.letterInput.active {
+  background-color: #c4c2c2;
+}
+
+.letterInput.active:focus {
+  background-color: #7a7a7a;
+}
+
+.letterInput.inactive {
+  background-color: #f2f2f2;
+}
+
+.misplaced {
+  background-color: #FFDE67 !important;
+}
+
+.incorrect {
+  background-color: #FF6C6C !important;
+}
+
+.correct {
+  background-color: #75F482 !important;
 }
 
 .stdBtn {
@@ -17,4 +233,28 @@ html, body {
   border: 1px solid #2c2c2c;
   width: 100%;
   max-width: 600px;
+}
+.stdBtn:hover {
+  background-color: #4a4848;
+}
+
+button {
+  border: 1px solid #727171;
+}
+
+.navbar-custom {
+  height: 150px;
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  font-size: 20px;
+  border: 1px solid #727171;
+  border-radius: 6px;
+}
+
+.stdCtr {
+  border: 1px solid #B9B9B9;
+  border-radius: 6px;
+  padding: 60px 20px 20px 20px;
 }

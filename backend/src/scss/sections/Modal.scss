@@ -1,0 +1,59 @@
+.modal {
+    display: block;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #ffffff;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 20px;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    height: 80%;
+    display: flex;
+    align-items: center;
+  
+    animation: modal-enter 1s;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64 ,1);
+  }
+  
+  .lost-game {
+    background-color: #facfcf !important;
+  }
+  
+  .won-game {
+    background-color: #e0fae2 !important;
+  }
+  
+  @keyframes modal-enter {
+    0% {
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+  
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

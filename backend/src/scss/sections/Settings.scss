@@ -1,0 +1,30 @@
+.stdCtr.settings {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: stretch;
+}
+
+.settingsBox {
+    width: 100%;
+    border: 1px solid #b9b9b9;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    align-items: start;
+}
+
+.cancelBtn {
+    background-color: rgb(119, 0, 0) !important;
+}
+
+.optionsTxt {
+    width: 100%;
+    font-size: 25px;
+    color: #8a8a8a;
+    flex: 0;
+}

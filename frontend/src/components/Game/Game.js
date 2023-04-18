@@ -58,7 +58,7 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
   }
 
   return (
-    <div className="gameCtr">
+    <div className="stdCtr game">
       {renderWordRows(maxGuesses)}
       <button
         type="submit"

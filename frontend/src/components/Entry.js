@@ -7,12 +7,12 @@ export default function Entry({ setPhase }) {
     setPhase(newPhase);
   }
   return (
-    <div className='entryCtr'>
+    <div className='stdCtr entry'>
       <button
-        className="stdBtn settingsBtn"
+        className="settingsBtn stdBtn "
         onClick={() => handleBtnClick('settings')}>Settings</button>
       <button
-        className="stdBtn mainBtn"
+        className="startBtn stdBtn"
         onClick={() => handleBtnClick('generateGame')}>Start a new game</button>
     </div>
   );

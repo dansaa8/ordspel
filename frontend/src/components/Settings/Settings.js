@@ -18,7 +18,7 @@ export default function Settings({ setPhase, settings, setSettings }) {
 
   return (
     <>
-      <div className="settingsCtr">
+      <div className="stdCtr settings">
       <h1 className="optionsTxt">Options</h1>
         <WordLengthSelector
           settings={tempSettings}
