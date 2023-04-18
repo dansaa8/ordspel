@@ -24,9 +24,7 @@ export default function GenerateGame({ setPhase, settings }) {
 
   if (gameId && wordLength) {
     return (
-      <div className="App">
-        <Game wordLength={wordLength} gameId={gameId} setPhase={setPhase} settings={settings}/>
-      </div>
+        <Game wordLength={wordLength} gameId={gameId} setPhase={setPhase} settings={settings} />
     );
   } else {
     return <div className="App">Loading...</div>;

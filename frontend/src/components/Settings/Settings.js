@@ -18,8 +18,8 @@ export default function Settings({ setPhase, settings, setSettings }) {
 
   return (
     <>
+      <div className="settingsCtr">
       <h1 className="optionsTxt">Options</h1>
-      <div className="settingsBox">
         <WordLengthSelector
           settings={tempSettings}
           setSettings={setTempSettings}
