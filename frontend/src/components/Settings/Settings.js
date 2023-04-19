@@ -1,10 +1,9 @@
 import RepCharsSelector from './RepCharsSelector';
-import './Settings.css';
 import WordLengthSelector from './WordLengthSelector';
-import { useState, useEffect, useMemo } from 'react';
+import { useState } from 'react';
 
 export default function Settings({ setPhase, settings, setSettings }) {
-  
+
   // Sync preselected settings with saved state from App.
   const [tempSettings, setTempSettings] = useState(settings);
   const handleBtnClick = (saveChanges) => {
@@ -19,7 +18,7 @@ export default function Settings({ setPhase, settings, setSettings }) {
   return (
     <>
       <div className="stdCtr settings">
-      <h1 className="optionsTxt">Options</h1>
+        <h1 className="optionsTxt">Options</h1>
         <WordLengthSelector
           settings={tempSettings}
           setSettings={setTempSettings}

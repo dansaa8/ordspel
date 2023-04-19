@@ -1,6 +1,3 @@
-import './Entry.css';
-import { useState } from 'react';
-
 export default function Entry({ setPhase }) {
 
   function handleBtnClick(newPhase) {

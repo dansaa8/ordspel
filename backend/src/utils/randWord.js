@@ -1,6 +1,7 @@
 import wordList from './wordList.js';
 
 export default function randWord(settings) {
+  return 'BILL';
   let words = wordList;
   const repeatChars = settings.repeatingChars;
 

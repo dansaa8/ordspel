@@ -1,6 +1,3 @@
-import { useState } from 'react';
-import './WordLengthSelector.css';
-
 export default function WordLengthSelector({ settings, setSettings }) {
   const minLetters = 4;
   const maxLetters = 9;

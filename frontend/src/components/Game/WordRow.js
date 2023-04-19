@@ -1,5 +1,3 @@
-import './WordRow.css';
-
 export default function WordRow({
   formNr,
   guesses,
@@ -16,9 +14,8 @@ export default function WordRow({
     for (let i = 0; i < wordLength; i++) {
       letterInputs.push(
         <input
-          className={`letterInput ${isActive ? 'active' : 'inactive'} ${
-            isEvaluated ? setColor(i) : ''
-          } `}
+          className={`letterInput ${isActive ? 'active' : 'inactive'} ${isEvaluated ? setColor(i) : ''
+            } `}
           type="text"
           required
           maxLength={1}

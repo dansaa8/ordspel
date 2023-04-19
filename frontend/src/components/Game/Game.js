@@ -16,7 +16,7 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
       Array.from({ length: wordLength }, () => '')
     )
   );
-  
+
   async function handleBtnClick(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -84,8 +84,8 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
           return (
             <div className='modal'>
               <div className='modal-content lost-game'>
-              <h1>Sorry, you lost the game.</h1>
-              <button className='stdBtn' onClick={() => {setPhase('entry')}}>Back to main</button>
+                <h1>Sorry, you lost the game.</h1>
+                <button className='stdBtn' onClick={() => { setPhase('entry') }}>Back to main</button>
               </div>
             </div>
           );

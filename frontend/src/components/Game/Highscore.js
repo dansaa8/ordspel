@@ -1,5 +1,5 @@
-import './Modal.css';
 import { useState } from 'react';
+
 export default function Highscore({ result, settings, gameId, setPhase }) {
   const [name, setName] = useState('');
 
@@ -9,8 +9,6 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
   const strGuesses = result.guesses.map((guess) => {
     return guess.string;
   });
-
-  console.log(settings);
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
@@ -22,8 +20,6 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
       settings: settings,
     };
 
-    console.log(highscore);
-    //`http://localhost:5080/api/games/${gameId}/highscore` - efter build
     await fetch(`api/games/${gameId}/highscore`, {
       method: 'post',
       headers: {
@@ -34,8 +30,6 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
 
     setPhase('entry');
   };
-
-  console.log('in highscore: ', result);
 
   return (
     <div className="modal">

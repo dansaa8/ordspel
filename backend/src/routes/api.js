@@ -1,9 +1,8 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import * as uuid from 'uuid';
 import randWord from '../utils/randWord.js';
 import evalWord from '../utils/evalWord.js';
-import { Highscore } from '../schemas.js';
+import Database from '../db/Database.js';
 
 const router = express.Router();
 export default router;
@@ -54,20 +53,13 @@ router.post('/:id/guesses', (req, res) => {
   }
 });
 
-
-const fakeHigscoreDatabase = [1, 2, 3];
-
 // If user submits his/her highscore
 router.post('/:id/highscore', async (req, res) => {
-  const conn = await mongoose.connect('mongodb://127.0.0.1:27017/ordspel');
   const game = GAMES.find((savedGame) => savedGame.id == req.params.id);
   if (game) {
-    console.log(req.body);
-    const highscore = new Highscore(req.body);
-    await highscore.save();
+    const highscore = Database.postHighscore(req.body);
     res.status(201).json(highscore);
   } else {
     res.status(404).end();
   }
-  conn.disconnect;
 });

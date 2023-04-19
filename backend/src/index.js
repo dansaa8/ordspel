@@ -29,7 +29,7 @@ app.get('/about', async (req, res) => {
 });
 
 app.get('/bundle.js', async (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/build/static/js/main.30e3a9aa.js'));
+  res.sendFile(path.join(__dirname, '../../frontend/build/static/js/main.ad0665dc.js'));
 });
 
 app.use('/api/games', api);
