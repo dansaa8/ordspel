@@ -1,6 +1,20 @@
 <h1>this is ze highscore</h1>
-<div stdCtr highscore>
-    <% if (highscores.length> 0) { %>
-        
-        <%} %>
+<div stdCtr highscores>
+  <% if (highscores.length> 0) { %> <% highscores.forEach(highscore => { %>
+  <div class="highscore">
+    <p>Player name: <% highscore.name %></p>
+    <p>Time: <% highscore.time %></p>
+    <div class="highscore_guesses">
+      <% highscore.guesses.forEach(guess => { %>
+      <p><% guess %></p>
+    </div>
+    <%}) %> 
+    <div class="highscore_settings">%>
+      <p>Wordlength: <% highscore.settings.wordLength %></p>
+      <p>
+        Repeating chars: <%= highscore.repeatingChars === true ? 'yes' : 'no' %>
+      </p>
+    </div>
+  </div>
+  <%}); %> <%} %>
 </div>
