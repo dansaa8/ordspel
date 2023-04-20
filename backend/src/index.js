@@ -2,6 +2,8 @@ import express from 'express';
 import api from './routes/api.js';
 import highscores from './routes/highscores.js';
 import expressLayouts from 'express-ejs-layouts';
+import Database from './db/Database.js';
+
 
 import path from "path";
 import { fileURLToPath } from 'url';
@@ -20,8 +22,11 @@ app.get('/', (req, res) => {
   res.render('', { title: 'Play Game' });
 });
 
-app.get('/highscore', async (req, res) => {
-  res.render('highscore', { title: 'Highscore' });
+app.get('/highscores', async (req, res) => {
+  const highscores = await Database.getHighscores();
+  if (highscores != null) {
+    res.render('highscores', { title: 'Highscores', highscores });
+  }
 });
 
 app.get('/about', async (req, res) => {
