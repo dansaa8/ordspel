@@ -23,9 +23,17 @@ app.get('/', (req, res) => {
 });
 
 app.get('/highscores', async (req, res) => {
-  const highscores = await DB.getHighscores(req.query.page || 0);
+  const hiScrsPerPage = 6;
+  const highscores = await DB.getHighscores(req.query.page, hiScrsPerPage);
+
   if (highscores != null) {
-    res.render('highscores', { title: 'Highscores', highscores });
+    res.render('highscores', {
+      title: 'Highscores',
+      highscores: highscores.filteredHghScrs,
+      pageCount: highscores.pageCount,
+      currPage: req.query.page,
+      hiScrsPerPage,
+    });
   }
 });
 

@@ -1,20 +1,57 @@
-<h1>this is ze highscore</h1>
-<div stdCtr highscores>
-  <% if (highscores.length> 0) { %> <% highscores.forEach(highscore => { %>
-  <div class="highscore">
-    <p>Player name: <%= highscore.name %></p>
-    <p>Time: <%= highscore.time.toFixed(2) %>s</p>
-    <div class="highscore_guesses">
-      <% highscore.guesses.forEach(guess => { %>
-      <p><% guess %></p>
+<h1 class="highscores-header">Highscores</h1>
+<div class="stdCtr highscores">
+  <% if (highscores.length> 0) { %>
+    <% for (const highscore of highscores) { %>
+      <div class="highscore">
+        <h3 class="content-header">Player info:</h3>
+      <div class="content-wrapper">
+        <p>Name: <%= highscore.name %></p>
+        <p>Time: <%= highscore.time.toFixed(2) %>s</p>
+      </div>
+      <h3 class="content-header">Guesses:</h3>
+      <div class="content-wrapper">
+        <% highscore.guesses.forEach(guess => {  %>
+          <p><%= guess %></p>
+        <%}) %>
+      </div>
+      <h3 class="content-header">Settings:</h3>
+      <div class="content-wrapper">
+        <p>wordlength: <%= highscore.settings.wordLength %></p>
+        <p>repeating chars: <%= highscore.settings.repeatingChars %></p>
+      </div>
+      </div>
+      <% } %>
+  <%  } %>
+
+
+
+    <div class="container">
+      <h1>Pagination</h1>
+      <div class="wrapper">
+        <div class="content">
+          <ul id="paginationList"></ul>
+        </div>
+      </div>
+      <div class="pagination-container">
+        <div class="pagination">
+          <button class="control" id="prev" title="Previous page">
+            < Prev
+          </button>
+          <div class="pageNumbers">
+            <!--Page numbers-->
+          </div>
+          <button class="control" id="next" title="Next page">Next ></button>
+        </div>
+      </div>
     </div>
-    <%}) %> 
-    <div class="highscore_settings">%>
-      <p>Wordlength: <%= highscore.settings.wordLength %></p>
-      <p>
-        Repeating chars: <%= highscore.settings.repeatingChars === true ? 'yes' : 'no' %>
-      </p>
-    </div>
+
+    <script
+      id="paginationArgs"
+      data-pageCount="<%= pageCount %>"
+      data-currPage="<%= currPage %>"
+      data-hiScrsPerPage="<%= hiScrsPerPage %>"
+      src="../public/pagination.js"
+      type="module"
+    ></script>
   </div>
-  <%}); %> <%} %>
 </div>

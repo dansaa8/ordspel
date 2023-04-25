@@ -4,6 +4,8 @@ import randWord from '../utils/randWord.js';
 import evalWord from '../utils/evalWord.js';
 import Database from '../db/Database.js';
 
+const DB = new Database();
+
 const router = express.Router();
 export default router;
 
@@ -57,7 +59,7 @@ router.post('/:id/guesses', (req, res) => {
 router.post('/:id/highscore', async (req, res) => {
   const game = GAMES.find((savedGame) => savedGame.id == req.params.id);
   if (game) {
-    const highscore = Database.postHighscore(req.body);
+    const highscore = DB.postHighscore(req.body);
     res.status(201).json(highscore);
   } else {
     res.status(404).end();

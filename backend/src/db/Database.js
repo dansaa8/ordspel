@@ -16,13 +16,16 @@ export default class Database {
     return highscore;
   }
 
-  async getHighscores(page) {
-    const hiScrsPerPage = 10;
+  async getHighscores(page, hiScrsPerPage) {
     const conn = await mongoose.connect(CONNECTION_URI);
-    const highscores = await Highscore.find()
+    const filteredHghScrs = await Highscore.find()
       .skip(page * hiScrsPerPage)
       .limit(hiScrsPerPage);
+    const allHighscores = await Highscore.find();
     conn.disconnect;
-    return highscores;
+    return {
+      filteredHghScrs: filteredHghScrs,
+      pageCount: Math.ceil(allHighscores.length / hiScrsPerPage)
+    };
   }
 }
