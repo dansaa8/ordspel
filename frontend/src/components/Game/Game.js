@@ -41,7 +41,7 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
   function renderWordRows(rowsCount) {
     const rows = [];
     for (let i = 0; i < rowsCount; i++) {
-      const newRow = (
+      const newRow = (  
         <WordRow
           key={i}
           formNr={i}
