@@ -17,6 +17,7 @@ export default class Database {
   }
 
   async getHighscores(page, hiScrsPerPage) {
+    page -= 1;
     const conn = await mongoose.connect(CONNECTION_URI);
     const filteredHghScrs = await Highscore.find()
       .skip(page * hiScrsPerPage)
@@ -25,7 +26,7 @@ export default class Database {
     conn.disconnect;
     return {
       filteredHghScrs: filteredHghScrs,
-      pageCount: Math.ceil(allHighscores.length / hiScrsPerPage)
+      pageCount: Math.ceil(allHighscores.length / hiScrsPerPage),
     };
   }
 }

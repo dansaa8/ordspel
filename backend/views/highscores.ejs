@@ -1,4 +1,29 @@
-<h1 class="highscores-header">Highscores</h1>
+
+
+<h1 class="highscores-header">Highscores</h1> 
+<div class="pagination-ctr">
+  <h1 class="pagi-header">Pagination</h1>
+  <div class="nav-wrapper">
+    <a class="navBtn left"><</a>
+    <nav class="pagi-nav">
+      <!-- anchors inserted with javascript-->
+    </nav>
+    <a class="navBtn right">></a>
+
+  </div>
+</div>
+
+<script
+  id="paginationArgs"
+  data-pageCount="<%= pageCount %>"
+  data-currPage="<%= currPage %>"
+  data-hiScrsPerPage="<%= hiScrsPerPage %>"
+  src="../public/pagination.js"
+  type="module"
+></script>
+</div>
+
+
 <div class="stdCtr highscores">
   <% if (highscores.length> 0) { %>
     <% for (const highscore of highscores) { %>
@@ -22,28 +47,4 @@
       </div>
       <% } %>
   <%  } %>
-
-
-
-    <div class="pagination-ctr">
-      <h1 class="pagi-header">Pagination</h1>
-      <div class="nav-wrapper">
-        <a class="navBtn left"><</a>
-        <nav class="pagi-nav">
-          <!-- anchors inserted with javascript-->
-        </nav>
-        <a class="navBtn right">></a>
-
-      </div>
-    </div>
-
-    <script
-      id="paginationArgs"
-      data-pageCount="<%= pageCount %>"
-      data-currPage="<%= currPage %>"
-      data-hiScrsPerPage="<%= hiScrsPerPage %>"
-      src="../public/pagination.js"
-      type="module"
-    ></script>
-  </div>
 </div>

@@ -1,4 +1,3 @@
-// const contentLimit = args.getAttribute('data-hiScrsPerPage');
 const args = document.querySelector('#paginationArgs');
 
 const pageCount = Number(args.getAttribute('data-pageCount'));
@@ -10,8 +9,8 @@ const leftBtn = document.querySelector('.left');
 const rightBtn = document.querySelector('.right');
 
 createAnchors();
-setLeftBtn();
-setRightBtn();
+setLeftArrow();
+setRightArrow();
 
 function createAnchors() {
   for (let i = 1; i <= pageCount; i++) {
@@ -23,15 +22,15 @@ function createAnchors() {
   }
 }
 
-function setLeftBtn() {
-  if (currPage >= 1) {
+function setLeftArrow() {
+  if (currPage > 1) {
     leftBtn.setAttribute('href', `${URL}?page=${currPage - 1}`);
   } else {
     leftBtn.classList.add('disabled');
   }
 }
 
-function setRightBtn() {
+function setRightArrow() {
   if (currPage < pageCount) {
     rightBtn.setAttribute('href', `${URL}?page=${currPage + 1}`);
   } else {
