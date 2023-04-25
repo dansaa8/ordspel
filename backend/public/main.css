@@ -10,7 +10,6 @@ html {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: stretch;
 }
 
@@ -19,7 +18,6 @@ html {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: stretch;
 }
 
@@ -79,11 +77,6 @@ html {
     transform: translateY(0);
   }
 }
-/* .repCharsSelector {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  } */
 .inputRC {
   display: block;
   width: 100%;
@@ -94,7 +87,6 @@ html {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: stretch;
 }
 
@@ -134,17 +126,6 @@ html {
   border-radius: 6px;
 }
 
-/* 
-  .wordLengthSelector:after {
-    content: '';
-    width: 65%;
-    border-bottom: solid 1px #9e9d9d;
-    position: relative;
-    left: 0;
-    top: 50px;
-
-    margin: auto;
-  } */
 .wordLengthBtn {
   background-color: #2b2b2b !important;
   color: white !important;
@@ -222,9 +203,17 @@ html {
   background-color: #75F482 !important;
 }
 
+.pagination-ctr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .nav-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .pagi-nav {
@@ -232,25 +221,39 @@ html {
   background-color: rgb(24, 24, 24);
 }
 
-.navBtn {
+.navArrow {
   font-size: 50px;
-  margin-left: 4px;
-  margin-right: 4px;
-  background-color: darkgrey;
+  background-color: rgb(14, 14, 14);
+  color: rgb(93, 160, 93);
 }
-.navBtn.left {
+.navArrow:hover {
+  color: rgb(24, 153, 24);
+}
+.navArrow.left {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
-.navBtn.right {
+.navArrow.right {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+.navArrow.disabled {
+  color: rgb(0, 0, 0) !important;
+}
+
+.pageNr {
+  color: rgb(83, 60, 80);
+  margin: 0px 10px 0px 10px;
+}
+.pageNr.highlight {
+  color: rgb(170, 144, 164) !important;
+}
+.pageNr:hover {
+  color: rgb(211, 6, 184);
 }
 
 .highscores-header {
   font-size: 45px;
-  margin-left: 100px;
-  font-weight: bold;
 }
 
 .highscores {
@@ -258,6 +261,10 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+}
+
+.highscores-header {
+  text-align: center;
 }
 
 .highscore {

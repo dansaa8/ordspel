@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/highscores', async (req, res) => {
-  const hiScrsPerPage = 6;
+  const hiScrsPerPage = 5;
 
   let highscores;
   if (req.query.page > 0) {

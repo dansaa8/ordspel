@@ -1,35 +1,36 @@
 .highscores-header {
-    font-size: 45px;
-    margin-left: 100px;
-    font-weight: bold;
+  font-size: 45px;
 }
 
 .highscores {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.highscores-header {
+  text-align: center;
 }
 
 .highscore {
-    border: 1px solid black;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    background-color: rgb(24, 24, 24);
-    color: rgb(122, 40, 111);
-    min-width: 250px;
-    max-width: 500px;
-    padding: 0 20px 20px 20px;
-    // display: flex;
-} 
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: rgb(24, 24, 24);
+  color: $c-purple;
+  min-width: 250px;
+  max-width: 500px;
+  padding: 0 20px 20px 20px;
+}
 
 .content-header {
-    margin-top:20px;
+  margin-top: 20px;
 }
 
 .content-wrapper {
-    border: 0.5px solid rgb(53, 53, 53);
-    border-radius: 8px;
-    padding: 5px 5px 0px 10px;
-    color: rgb(170, 144, 164);
+  border: 0.5px solid $c-darkGrey;
+  border-radius: 8px;
+  padding: 5px 5px 0px 10px;
+  color: $c-lightPink;
 }

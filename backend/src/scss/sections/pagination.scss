@@ -1,6 +1,14 @@
+.pagination-ctr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .nav-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .pagi-nav {
@@ -8,11 +16,13 @@
   background-color: rgb(24, 24, 24);
 }
 
-.navBtn {
+.navArrow {
   font-size: 50px;
-  margin-left: 4px;
-  margin-right: 4px;
-  background-color: darkgrey;
+  background-color: rgb(14, 14, 14);
+  color: rgb(93, 160, 93);
+  &:hover {
+    color: rgb(24, 153, 24);
+  }
   &.left {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -21,4 +31,19 @@
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
   }
+
+    &.disabled {
+      color: rgb(0, 0, 0) !important;
+    }
+}
+
+.pageNr {
+  color: $c-darkPurple;
+  &.highlight {
+    color: $c-lightPink !important;
+  }
+  &:hover {
+    color: $c-screamingPink;
+  }
+  margin: 0px 10px 0px 10px;
 }

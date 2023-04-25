@@ -1,17 +1,6 @@
 
 
 <h1 class="highscores-header">Highscores</h1> 
-<div class="pagination-ctr">
-  <h1 class="pagi-header">Pagination</h1>
-  <div class="nav-wrapper">
-    <a class="navBtn left"><</a>
-    <nav class="pagi-nav">
-      <!-- anchors inserted with javascript-->
-    </nav>
-    <a class="navBtn right">></a>
-
-  </div>
-</div>
 
 <script
   id="paginationArgs"
@@ -25,6 +14,19 @@
 
 
 <div class="stdCtr highscores">
+  
+  <div class="pagination-ctr">
+    <!-- <h1 class="pagi-header">Pagination</h1> -->
+    <div class="nav-wrapper">
+      <a class="navArrow left"><</a>
+      <nav class="pagi-nav">
+        <!-- anchors inserted with javascript-->
+      </nav>
+      <a class="navArrow right">></a>
+  
+    </div>
+  </div>
+
   <% if (highscores.length> 0) { %>
     <% for (const highscore of highscores) { %>
       <div class="highscore">

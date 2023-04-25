@@ -11,6 +11,7 @@ const rightBtn = document.querySelector('.right');
 createAnchors();
 setLeftArrow();
 setRightArrow();
+hiLiteCurrPageNr();
 
 function createAnchors() {
   for (let i = 1; i <= pageCount; i++) {
@@ -18,6 +19,7 @@ function createAnchors() {
     pageNr.innerText = i;
     pageNr.setAttribute('href', `${URL}?page=${i}`);
     pageNr.setAttribute('index', i);
+    pageNr.classList.add('pageNr');
     navBar.appendChild(pageNr);
   }
 }
@@ -34,6 +36,20 @@ function setRightArrow() {
   if (currPage < pageCount) {
     rightBtn.setAttribute('href', `${URL}?page=${currPage + 1}`);
   } else {
-    leftBtn.classList.add('disabled');
+    rightBtn.classList.add('disabled');
   }
+}
+
+function hiLiteCurrPageNr() {
+  // const pageAnchors = document.querySelectorAll('.pageNr');
+  const anchor = document.querySelector(`.pageNr[index="${currPage}"]`);
+  anchor.classList.add('highlight');
+
+  // for (let i = 0; i < pageAnchors.length; i++) {
+  //   if (pageAnchors[i].getAttribute('index') == currPage) {
+  //     pageAnchors[i].classList.add('highlight');
+  //   } else {
+  //     pageAnchors[i].classList.remove('highlight');
+  //   }
+  // }
 }
