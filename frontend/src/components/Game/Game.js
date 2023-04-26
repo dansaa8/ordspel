@@ -60,7 +60,7 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
         type="submit"
         value="submit"
         form={'wordRow' + guesses.length}
-        className="stdBtn"
+        className="stdBtn validate"
         data-toggle="modal"
         data-target="#exampleModalCenter"
       >

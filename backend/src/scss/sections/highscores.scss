@@ -1,5 +1,5 @@
-.highscores-header {
-  font-size: 45px;
+.stdCtr.highscores {
+  margin: auto;
 }
 
 .highscores {
@@ -7,10 +7,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-}
-
-.highscores-header {
-  text-align: center;
 }
 
 .highscore {

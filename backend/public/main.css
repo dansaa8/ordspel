@@ -9,8 +9,9 @@ html {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
   align-items: stretch;
+  justify-content: center;
+  margin: auto;
 }
 
 .stdCtr.game {
@@ -19,6 +20,11 @@ html {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: stretch;
+  margin: 70px auto 0;
+}
+
+.stdBtn.validate {
+  margin: auto;
 }
 
 .modal {
@@ -61,11 +67,11 @@ html {
 }
 
 .lost-game {
-  background-color: #FF6C6C !important;
+  background-color: #fcb4b4 !important;
 }
 
 .won-game {
-  background-color: #75F482 !important;
+  background-color: #ccffd1 !important;
 }
 
 @keyframes modal-enter {
@@ -92,7 +98,6 @@ html {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  max-width: 1000px;
   margin: auto;
 }
 
@@ -173,14 +178,21 @@ html {
   text-transform: uppercase;
 }
 
+.wordRow {
+  width: auto;
+}
+
 .wordCtr {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
 }
 
 .letterInput {
   border: none;
+  margin-bottom: 2px;
+  margin: 15px;
 }
 
 .letterInput.active {
@@ -208,26 +220,29 @@ html {
 }
 
 .pagination-ctr {
+  margin: auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .nav-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: auto;
 }
 
 .pagi-nav {
   font-size: 50px;
   background-color: rgb(24, 24, 24);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .navArrow {
   font-size: 50px;
+  margin: 1px;
   background-color: rgb(14, 14, 14);
+  height: 100%;
   color: rgb(93, 160, 93);
 }
 .navArrow:hover {
@@ -256,8 +271,8 @@ html {
   color: rgb(211, 6, 184);
 }
 
-.highscores-header {
-  font-size: 45px;
+.stdCtr.highscores {
+  margin: auto;
 }
 
 .highscores {
@@ -265,10 +280,6 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-}
-
-.highscores-header {
-  text-align: center;
 }
 
 .highscore {
@@ -291,10 +302,6 @@ html {
   border-radius: 8px;
   padding: 5px 5px 0px 10px;
   color: #fcb4b4;
-}
-
-#root {
-  height: 100%;
 }
 
 .stdBtn {
@@ -328,17 +335,25 @@ button {
 
 .navbar-custom {
   height: 150px;
-  width: 100%;
   border-radius: 6px;
   margin-bottom: 10px;
   background-color: #f0f0f0;
   font-size: 20px;
   border: 1px solid #727171;
   border-radius: 6px;
+  max-width: 1500px;
+  margin: auto;
 }
 
 .stdCtr {
   border: 1px solid #B9B9B9;
   border-radius: 6px;
   padding: 60px 20px 20px 20px;
+  max-width: 1000px;
+}
+
+.header {
+  font-size: 45px;
+  text-align: center;
+  margin: 20px;
 }

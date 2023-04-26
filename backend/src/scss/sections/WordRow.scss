@@ -8,15 +8,22 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+
+  .wordRow {
+    width: auto;
+  }
   
   .wordCtr {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
   }
   
   .letterInput {
     border: none;
+    margin-bottom: 2px;
+    margin: 15px;
   }
   
   .letterInput.active {

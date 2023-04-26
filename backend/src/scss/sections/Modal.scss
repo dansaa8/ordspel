@@ -39,11 +39,11 @@
   }
   
   .lost-game {
-    background-color: $c-lightRed !important;
+    background-color: $c-lightPink !important;
   }
   
   .won-game {
-    background-color: $c-lightGreen !important;
+    background-color: $c-mintGreen!important;
   }
   
   @keyframes modal-enter {
