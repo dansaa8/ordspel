@@ -55,16 +55,17 @@ html {
   height: 80%;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   animation: modal-enter 1s;
   animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .lost-game {
-  background-color: #facfcf !important;
+  background-color: #FF6C6C !important;
 }
 
 .won-game {
-  background-color: #e0fae2 !important;
+  background-color: #75F482 !important;
 }
 
 @keyframes modal-enter {
@@ -77,17 +78,22 @@ html {
     transform: translateY(0);
   }
 }
-.inputRC {
-  display: block;
+.repCharsSelector {
   width: 100%;
+  text-align: center;
+  border: 1px solid #b9b9b9;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 40px;
 }
 
 .stdCtr.settings {
-  flex: 1;
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  align-items: stretch;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .settingsBox {
@@ -99,10 +105,6 @@ html {
   flex: 1;
   justify-content: center;
   align-items: start;
-}
-
-.cancelBtn {
-  background-color: rgb(119, 0, 0) !important;
 }
 
 .optionsTxt {
@@ -118,12 +120,14 @@ html {
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
-  /* width: 80%; */
-  /* margin-left: auto; */
   align-items: center;
   justify-content: center;
   border: 1px solid #b9b9b9;
   border-radius: 6px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 40px;
 }
 
 .wordLengthBtn {
@@ -246,7 +250,7 @@ html {
   margin: 0px 10px 0px 10px;
 }
 .pageNr.highlight {
-  color: rgb(170, 144, 164) !important;
+  color: #fcb4b4 !important;
 }
 .pageNr:hover {
   color: rgb(211, 6, 184);
@@ -286,7 +290,11 @@ html {
   border: 0.5px solid rgb(53, 53, 53);
   border-radius: 8px;
   padding: 5px 5px 0px 10px;
-  color: rgb(170, 144, 164);
+  color: #fcb4b4;
+}
+
+#root {
+  height: 100%;
 }
 
 .stdBtn {
@@ -300,9 +308,18 @@ html {
   border: 1px solid #2c2c2c;
   width: 100%;
   max-width: 600px;
+  margin: 10px;
 }
 .stdBtn:hover {
   background-color: #4a4848;
+}
+
+.cancelBtn {
+  background-color: #FF6C6C !important;
+  color: black;
+}
+.cancelBtn:hover {
+  background-color: #fcb4b4 !important;
 }
 
 button {

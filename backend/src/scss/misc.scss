@@ -1,3 +1,7 @@
+#root {
+  height: 100%;
+}
+
 .stdBtn {
   height: 80px;
   border-style: none;
@@ -9,11 +13,21 @@
   border: 1px solid #2c2c2c;
   width: 100%;
   max-width: 600px;
+  margin: 10px;
 
   &:hover {
     background-color: #4a4848;
 
   }
+}
+
+.cancelBtn {
+  background-color: $c-lightRed !important;
+  &:hover {
+    background-color: $c-lightPink !important;
+  }
+
+  color: black;
 }
 
 button {

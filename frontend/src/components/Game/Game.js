@@ -8,9 +8,6 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
   const [result, setResult] = useState(null);
   const maxGuesses = 5;
 
-  console.log('gameId: ', gameId);
-
-  // x rows(val of maxguesses) of guesses, each row having the length of wordLength.
   const [lettersOfWords, setLettersOfWords] = useState(
     Array.from({ length: maxGuesses }, () =>
       Array.from({ length: wordLength }, () => '')
@@ -21,7 +18,6 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
     event.preventDefault();
     event.stopPropagation();
     const guessStr = lettersOfWords[guesses.length].join('');
-    // event.nativeEvent.stopImmediatePropagation();
     const res = await fetch(`api/games/${gameId}/guesses`, {
       method: 'post',
       headers: {
@@ -41,7 +37,7 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
   function renderWordRows(rowsCount) {
     const rows = [];
     for (let i = 0; i < rowsCount; i++) {
-      const newRow = (  
+      const newRow = (
         <WordRow
           key={i}
           formNr={i}

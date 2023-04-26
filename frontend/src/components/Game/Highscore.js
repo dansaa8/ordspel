@@ -49,6 +49,9 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
           <button type="submit" className="stdBtn">
             Post highscore
           </button>
+          <button className='stdBtn cancelBtn' onClick={() => { setPhase('entry') }}>
+            No thanks!
+          </button>
         </form>
       </div>
     </div>

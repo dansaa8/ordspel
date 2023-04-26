@@ -1,6 +1,5 @@
 export default function RepCharsSelector({ settings, setSettings }) {
   const handleRadioButton = (value) => {
-    // setRepChars(event.target.value);
     setSettings((settings) => {
       return ({ ...settings, repeatingChars: value });
     });

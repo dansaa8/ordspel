@@ -32,17 +32,18 @@
     height: 80%;
     display: flex;
     align-items: center;
-  
+    justify-content: space-around;
+
     animation: modal-enter 1s;
     animation-timing-function: cubic-bezier(0.34, 1.56, 0.64 ,1);
   }
   
   .lost-game {
-    background-color: #facfcf !important;
+    background-color: $c-lightRed !important;
   }
   
   .won-game {
-    background-color: #e0fae2 !important;
+    background-color: $c-lightGreen !important;
   }
   
   @keyframes modal-enter {
