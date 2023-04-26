@@ -1,6 +1,10 @@
-# Pagination:
+# Filtrering 
 
-1. Få in all HTML för pagineringsknapparna.
-2. Lägg till css:en för pagineringen i scss.
-3. Se över klassnamn o justera efter behov.
-4. 
+# Filtrera highscores baserat på ordlängd:
+
+
+1. Skapa en <input type="range"> så att användaren kan välja filtrering baserat på ordlängd. Lägg till en eventListener till denna input som kör update-funktionen vid change. 
+
+2. Skapa en update-funktion i pagination .js. 
+denna funktion ska vara den centrala funktion som gör en ny request varje gång användaren gör en ändring (antingen klickar på ett pageNr eller ändrar type="range"). 
+
