@@ -46,24 +46,39 @@ html {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
+  padding: 20px;
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #ffffff;
-  margin: 15% auto;
-  /* 15% from the top and centered */
-  padding: 20px;
+  top: 15%;
+  margin: auto;
   border: 1px solid #888;
   border-radius: 20px;
-  width: 80%;
-  /* Could be more or less, depending on screen size */
-  height: 80%;
+  max-width: 1200px;
+  min-height: 500px;
+  max-height: 1200px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;
   animation: modal-enter 1s;
   animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-content form {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.modal-content form input {
+  width: 0px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .lost-game {
@@ -305,7 +320,7 @@ html {
 }
 
 .stdBtn {
-  height: 80px;
+  min-height: 80px;
   border-style: none;
   border-radius: 14px;
   background-color: #2b2b2b;
@@ -319,6 +334,11 @@ html {
 }
 .stdBtn:hover {
   background-color: #4a4848;
+}
+@media (max-width: 600px) {
+  .stdBtn {
+    width: auto;
+  }
 }
 
 .cancelBtn {
