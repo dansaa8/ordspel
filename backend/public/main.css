@@ -273,10 +273,10 @@ html {
   margin: 1px;
   background-color: rgb(14, 14, 14);
   height: 100%;
-  color: rgb(93, 160, 93);
+  color: #75F482;
 }
 .navArrow:hover {
-  color: rgb(24, 153, 24);
+  color: green;
 }
 .navArrow.left {
   border-top-left-radius: 8px;
@@ -291,14 +291,17 @@ html {
 }
 
 .pageNr {
-  color: rgb(83, 60, 80);
+  color: #FFDE67;
   margin: 0px 10px 0px 10px;
 }
 .pageNr.highlight {
-  color: #fcb4b4 !important;
+  color: #FF6C6C !important;
+}
+.pageNr.highlight:hover {
+  color: red !important;
 }
 .pageNr:hover {
-  color: rgb(211, 6, 184);
+  color: yellow;
 }
 
 .stdCtr.highscores {
@@ -317,7 +320,7 @@ html {
   border-radius: 8px;
   margin-bottom: 20px;
   background-color: rgb(24, 24, 24);
-  color: rgb(122, 40, 111);
+  color: #FFDE67;
   min-width: 250px;
   max-width: 500px;
   padding: 0 20px 20px 20px;
@@ -328,10 +331,10 @@ html {
 }
 
 .content-wrapper {
-  border: 0.5px solid rgb(53, 53, 53);
+  border: 0.5px solid #75F482;
   border-radius: 8px;
   padding: 5px 5px 0px 10px;
-  color: #fcb4b4;
+  color: #FF6C6C;
 }
 
 .stdBtn {
