@@ -337,6 +337,18 @@ html {
   color: #FF6C6C;
 }
 
+.navbar-custom {
+  height: 150px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: wheat;
+  font-size: 20px;
+  border: 1px solid #727171;
+  border-radius: 6px;
+  max-width: 1500px;
+  margin: auto;
+}
+
 .stdBtn {
   min-height: 80px;
   border-style: none;
@@ -369,18 +381,6 @@ html {
 
 button {
   border: 1px solid #727171;
-}
-
-.navbar-custom {
-  height: 150px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  background-color: #f0f0f0;
-  font-size: 20px;
-  border: 1px solid #727171;
-  border-radius: 6px;
-  max-width: 1500px;
-  margin: auto;
 }
 
 .stdCtr {

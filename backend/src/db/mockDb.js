@@ -103,6 +103,5 @@ export default function renderMockHiScrs() {
       guesses: ['OIUYTREQ', 'IJHGFDCE', 'IUYTREWQ'],
       settings: { wordLength: 8, repeatingChars: false },
     });
-    // Promise.all({}).then(() => console.log('Added users'));
   });
 }

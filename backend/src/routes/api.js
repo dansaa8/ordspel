@@ -20,8 +20,6 @@ router.post('/', (req, res) => {
   };
 
   GAMES.push(newGame);
-  // 201 created success status response code indicates that
-  // the request has succeeded and has led to the creation of a resource.
   res
     .status(201)
     .json({ id: newGame.id, wordLength: newGame.correctWord.length });
@@ -55,7 +53,6 @@ router.post('/:id/guesses', (req, res) => {
   }
 });
 
-// If user submits his/her highscore
 router.post('/:id/highscore', async (req, res) => {
   const game = GAMES.find((savedGame) => savedGame.id == req.params.id);
   if (game) {
