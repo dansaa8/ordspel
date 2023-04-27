@@ -51,6 +51,7 @@ html {
 
 /* Modal Content/Box */
 .modal-content {
+  padding: 30px 0 30px 0;
   background-color: #ffffff;
   top: 15%;
   margin: auto;
@@ -75,10 +76,24 @@ html {
   justify-content: center;
 }
 .modal-content form input {
-  width: 0px;
   margin-bottom: 30px;
   font-size: 30px;
   text-align: center;
+  size: 0px;
+}
+
+.gameStats {
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  max-width: 400px;
+}
+.gameStats h2 {
+  margin-top: 20px;
+}
+.gameStats p {
+  margin-left: 10px;
+  margin-top: 5px;
 }
 
 .lost-game {

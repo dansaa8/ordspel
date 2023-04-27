@@ -4,7 +4,7 @@ export default function Entry({ setPhase }) {
   }
   return (
     <>
-      <h1 class="header">Play Wordle</h1>
+      <h1 className="header">Play Wordle</h1>
 
       <div className="stdCtr entry">
         <button
