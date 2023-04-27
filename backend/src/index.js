@@ -49,7 +49,7 @@ app.get('/about', async (req, res) => {
 
 app.get('/bundle.js', async (req, res) => {
   res.sendFile(
-    path.join(__dirname, '../../frontend/build/static/js/main.ad0665dc.js')
+    path.join(__dirname, '../../frontend/build/static/js/main.5aaf2667.js')
   );
 });
 
