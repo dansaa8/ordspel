@@ -1,5 +1,5 @@
-import './Modal.css';
 import { useState } from 'react';
+
 export default function Highscore({ result, settings, gameId, setPhase }) {
   const [name, setName] = useState('');
 
@@ -9,8 +9,6 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
   const strGuesses = result.guesses.map((guess) => {
     return guess.string;
   });
-
-  console.log(settings);
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
@@ -22,9 +20,6 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
       settings: settings,
     };
 
-    console.log(highscore);
-
-    //`http://localhost:5080/api/games/${gameId}/highscore` - efter build
     await fetch(`api/games/${gameId}/highscore`, {
       method: 'post',
       headers: {
@@ -36,24 +31,47 @@ export default function Highscore({ result, settings, gameId, setPhase }) {
     setPhase('entry');
   };
 
-  console.log('in highscore: ', result);
+  const printGuesses = () => {
+    const guesses = [];
+    for (let i = 0; i < result.guesses.length; i++) {
+      guesses.push(
+        <p key={'guess' + i}>
+          guess{i + 1}: {strGuesses[i]}
+        </p>
+      );
+    }
+    return guesses;
+  };
 
   return (
     <div className="modal">
       <div className="modal-content won-game">
         <h1>Congrats, you won the game!</h1>
         <p>The correct word was {result.guesses.at(-1).string}</p>
-        <p>Guesses: {result.guesses.string}</p>
-        <p>Duration: {duration}s</p>
+        <div className="gameStats">
+          <h2>Your guesses: {result.guesses.string}</h2>
+          {printGuesses(false, false)}
+          <h2>Time:</h2>
+          <p>Duration: {duration}s</p>
+        </div>
         <h2>Add to highscore</h2>
         <form onSubmit={handleSubmit}>
           <input
             value={name}
             onChange={(ev) => setName(ev.target.value)}
             placeholder="Your name"
+            required
           />
           <button type="submit" className="stdBtn">
             Post highscore
+          </button>
+          <button
+            className="stdBtn cancelBtn"
+            onClick={() => {
+              setPhase('entry');
+            }}
+          >
+            No thanks!
           </button>
         </form>
       </div>

@@ -1,14 +1,10 @@
-import { useState } from 'react';
-import './RepCharsSelector.css';
-
 export default function RepCharsSelector({ settings, setSettings }) {
   const handleRadioButton = (value) => {
-    // setRepChars(event.target.value);
     setSettings((settings) => {
-      return({...settings, repeatingChars: value});
+      return ({ ...settings, repeatingChars: value });
     });
   };
-  
+
   return (
     <>
       <section className="repCharsSelector">

@@ -1,0 +1,12 @@
+.stdCtr.game {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 70px auto 0;
+}
+
+.stdBtn.validate {
+  margin: auto;
+}

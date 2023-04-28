@@ -1,0 +1,92 @@
+.modal {
+  display: block;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding: 20px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  padding: 30px 0 30px 0;
+  background-color: #ffffff;
+  top: 15%;
+  margin: auto;
+  border: 1px solid #888;
+  border-radius: 20px;
+  max-width: 1200px;
+  min-height: 500px;
+  max-height: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  animation: modal-enter 1s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-content form {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  & input {
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-align: center;
+    size: 0px;
+  }
+}
+
+.gameStats {
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  max-width: 400px;
+
+  & h2 {
+    // margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+  & p {
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+}
+
+.lost-game {
+  background-color: $c-lightPink !important;
+}
+
+.won-game {
+  background-color: $c-mintGreen !important;
+}
+
+@keyframes modal-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

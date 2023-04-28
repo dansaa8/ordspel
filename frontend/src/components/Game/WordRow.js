@@ -1,5 +1,3 @@
-import './WordRow.css';
-
 export default function WordRow({
   formNr,
   guesses,
@@ -16,9 +14,8 @@ export default function WordRow({
     for (let i = 0; i < wordLength; i++) {
       letterInputs.push(
         <input
-          className={`letterInput ${isActive ? 'active' : 'inactive'} ${
-            isEvaluated ? setColor(i) : ''
-          } `}
+          className={`letterInput ${isActive ? 'active' : 'inactive'} ${isEvaluated ? setColor(i) : ''
+            } `}
           type="text"
           required
           maxLength={1}
@@ -43,20 +40,20 @@ export default function WordRow({
 
   if (formNr === currentGuess && gameState === 'won') {
     return (
-      <form id={'wordRow' + formNr} onSubmit={handleBtnClick}>
+      <form id={'wordRow' + formNr} className="wordRow" onSubmit={handleBtnClick}>
         <fieldset className="wordCtr">{renderLetters(false, false)}</fieldset>
       </form>
     );
   }
   else if (formNr === currentGuess) {
     return (
-      <form id={'wordRow' + formNr} onSubmit={handleBtnClick}>
+      <form id={'wordRow' + formNr} className="wordRow" onSubmit={handleBtnClick}>
         <fieldset className="wordCtr">{renderLetters(true, false)}</fieldset>
       </form>
     );
   } else if (formNr < currentGuess) {
     return (
-      <form id={'wordRow' + formNr}>
+      <form id={'wordRow' + formNr} className="wordRow">
         <fieldset className="wordCtr" disabled={true}>
           {renderLetters(false, true)}
         </fieldset>
@@ -64,7 +61,7 @@ export default function WordRow({
     );
   } else if (formNr > currentGuess) {
     return (
-      <form id={'wordRow' + formNr}>
+      <form id={'wordRow' + formNr} className="wordRow">
         <fieldset className="wordCtr" disabled={true}>
           {renderLetters(false, false)}
         </fieldset>

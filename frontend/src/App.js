@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import { useState } from 'react';
 import Entry from './components/Entry';
 import Settings from './components/Settings/Settings';
 import GenerateGame from './components/Game/GenerateGame';
@@ -24,9 +23,9 @@ export default function App() {
             />
           ),
           generateGame: (
-            <GenerateGame 
-             setPhase={setPhase} 
-             settings={settings} />),
+            <GenerateGame
+              setPhase={setPhase}
+              settings={settings} />),
         }
         [phase]
       }

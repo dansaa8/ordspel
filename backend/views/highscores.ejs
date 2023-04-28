@@ -1,0 +1,49 @@
+<h1 class="header">Highscores</h1>
+
+<script id="paginationArgs" data-pageCount="<%= pageCount %>"
+  data-currPage="<%= currPage %>" data-hiScrsPerPage="<%= hiScrsPerPage %>"
+  src="../public/pagination.js" type="module"></script>
+</div>
+
+
+<div class="stdCtr highscores">
+
+  <div class="pagination-ctr">
+    <div class="nav-wrapper">
+      <a class="navArrow left"><</a>
+          <nav class="pagi-nav">
+            <!-- anchors inserted with javascript-->
+          </nav>
+          <a class="navArrow right">></a>
+
+    </div>
+  </div>
+
+  <% if (highscores.length> 0) { %>
+    <% for (const highscore of highscores) { %>
+      <div class="highscore">
+        <h3 class="content-header">Player info:</h3>
+        <div class="content-wrapper">
+          <p>Name: <%= highscore.name %>
+          </p>
+          <p>Time: <%= highscore.time.toFixed(2) %>s</p>
+        </div>
+        <h3 class="content-header">Guesses:</h3>
+        <div class="content-wrapper">
+          <% highscore.guesses.forEach(guess=> { %>
+            <p>
+              <%= guess %>
+            </p>
+            <%}) %>
+        </div>
+        <h3 class="content-header">Settings:</h3>
+        <div class="content-wrapper">
+          <p>wordlength: <%= highscore.settings.wordLength %>
+          </p>
+          <p>repeating chars: <%= highscore.settings.repeatingChars %>
+          </p>
+        </div>
+      </div>
+      <% } %>
+        <% } %>
+</div>

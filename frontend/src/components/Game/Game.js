@@ -8,20 +8,16 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
   const [result, setResult] = useState(null);
   const maxGuesses = 5;
 
-  console.log('gameId: ', gameId);
-
-  // x rows(val of maxguesses) of guesses, each row having the length of wordLength.
   const [lettersOfWords, setLettersOfWords] = useState(
     Array.from({ length: maxGuesses }, () =>
       Array.from({ length: wordLength }, () => '')
     )
   );
-  
+
   async function handleBtnClick(event) {
     event.preventDefault();
     event.stopPropagation();
     const guessStr = lettersOfWords[guesses.length].join('');
-    // event.nativeEvent.stopImmediatePropagation();
     const res = await fetch(`api/games/${gameId}/guesses`, {
       method: 'post',
       headers: {
@@ -58,13 +54,13 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
   }
 
   return (
-    <div className="gameCtr">
+    <div className="stdCtr game">
       {renderWordRows(maxGuesses)}
       <button
         type="submit"
         value="submit"
         form={'wordRow' + guesses.length}
-        className="stdBtn"
+        className="stdBtn validate"
         data-toggle="modal"
         data-target="#exampleModalCenter"
       >
@@ -84,8 +80,8 @@ export default function Game({ wordLength, gameId, setPhase, settings }) {
           return (
             <div className='modal'>
               <div className='modal-content lost-game'>
-              <h1>Sorry, you lost the game.</h1>
-              <button className='stdBtn' onClick={() => {setPhase('entry')}}>Back to main</button>
+                <h1>Sorry, you lost the game.</h1>
+                <button className='stdBtn' onClick={() => { setPhase('entry') }}>Back to main</button>
               </div>
             </div>
           );

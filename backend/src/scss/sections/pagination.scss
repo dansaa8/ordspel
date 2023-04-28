@@ -1,0 +1,55 @@
+.pagination-ctr {
+  margin: auto;
+  width: 100%;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.pagi-nav {
+  font-size: 50px;
+  background-color: rgb(24, 24, 24);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navArrow {
+  font-size: 50px;
+  margin: 1px;
+  background-color: rgb(14, 14, 14);
+  height: 100%;
+  color: $c-lightGreen;
+  &:hover {
+    color: green;
+  }
+  &.left {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  &.right {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+    &.disabled {
+      color: rgb(0, 0, 0) !important;
+    }
+}
+
+.pageNr {
+  color: $c-lightYellow;
+  &.highlight {
+    color: $c-lightRed !important;
+    &:hover {
+      color: red !important;
+    }
+  }
+  &:hover {
+    color: yellow;
+  }
+  margin: 0px 10px 0px 10px;
+}
