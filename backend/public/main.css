@@ -118,6 +118,7 @@ html {
   width: 100%;
   text-align: center;
   border: 1px solid #b9b9b9;
+  border-radius: 6px;
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 40px;
@@ -273,7 +274,7 @@ html {
   margin: 1px;
   background-color: rgb(14, 14, 14);
   height: 100%;
-  color: #75F482;
+  color: #75f482;
 }
 .navArrow:hover {
   color: green;
@@ -291,11 +292,11 @@ html {
 }
 
 .pageNr {
-  color: #FFDE67;
+  color: #ffde67;
   margin: 0px 10px 0px 10px;
 }
 .pageNr.highlight {
-  color: #FF6C6C !important;
+  color: #ff6c6c !important;
 }
 .pageNr.highlight:hover {
   color: red !important;
@@ -320,7 +321,7 @@ html {
   border-radius: 8px;
   margin-bottom: 20px;
   background-color: rgb(24, 24, 24);
-  color: #FFDE67;
+  color: #ffde67;
   min-width: 250px;
   max-width: 500px;
   padding: 0 20px 20px 20px;
@@ -331,17 +332,17 @@ html {
 }
 
 .content-wrapper {
-  border: 0.5px solid #75F482;
+  border: 0.5px solid #75f482;
   border-radius: 8px;
   padding: 5px 5px 0px 10px;
-  color: #FF6C6C;
+  color: #ff6c6c;
 }
 
 .navbar-custom {
   height: 150px;
   border-radius: 6px;
   margin-bottom: 10px;
-  background-color: wheat;
+  background-color: rgb(255, 250, 241);
   font-size: 20px;
   border: 1px solid #727171;
   border-radius: 6px;
@@ -372,7 +373,7 @@ html {
 }
 
 .cancelBtn {
-  background-color: #FF6C6C !important;
+  background-color: #ff6c6c !important;
   color: black;
 }
 .cancelBtn:hover {
@@ -384,10 +385,12 @@ button {
 }
 
 .stdCtr {
-  border: 1px solid #B9B9B9;
+  border: 1px solid #b9b9b9;
   border-radius: 6px;
   padding: 60px 20px 20px 20px;
   max-width: 1000px;
+  background-color: aliceblue;
+  margin: auto;
 }
 
 .header {

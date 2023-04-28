@@ -10,8 +10,6 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
-
 const DB = new Database();
 
 const app = express();
@@ -30,5 +28,8 @@ app.get('/bundle.js', async (req, res) => {
   );
 });
 
-app.listen(5080);
+app.get('*', (req, res) => {
+  res.render('404', { title: '404' });
+});
 
+app.listen(5080);
