@@ -3,6 +3,8 @@ import * as uuid from 'uuid';
 import randWord from '../utils/randWord.js';
 import evalWord from '../utils/evalWord.js';
 import Database from '../db/Database.js';
+import wordList from '../utils/wordList.js';
+
 
 const DB = new Database();
 
@@ -13,7 +15,7 @@ const GAMES = [];
 
 router.post('/', (req, res) => {
   const newGame = {
-    correctWord: randWord(req.body).toUpperCase(),
+    correctWord: randWord(req.body, wordList).toUpperCase(),
     guesses: [],
     id: uuid.v4(),
     startTime: new Date(),

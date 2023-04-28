@@ -30,9 +30,9 @@ describe("randWord(), test that returned lengths are correct", () => {
     const cases = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     test.each(cases)(
         "given %i argument, returns %i",
-        (length) => {
-            const result = randWord(words, length, true).length;
-            expect(result).toEqual(length);
+        (wordLength) => {
+            const result = randWord({wordLength: wordLength, repeatingChars: true}, words).length;
+            expect(result).toEqual(wordLength);
         }
     );
 });
@@ -49,7 +49,7 @@ describe("randWord(), test that strings with no repeatedChars are returned when 
     test.each(cases)(
         "given %i and false as as arguments, returns %s or %s",
         (wordLength, expectedWords) => {
-            const result = randWord(words, wordLength, false);
+            const result = randWord({wordLength: wordLength, repeatingChars: false}, words);
             expect(expectedWords).toContain(result);
         }
     );
@@ -66,7 +66,7 @@ describe("randWord(), test that strings with repeatedChars also are returned whe
     test.each(cases)(
         "given %i and true as as arguments, returns str0 or str1 or str2 or str3",
         (wordLength, expectedWords) => {
-            const result = randWord(words, wordLength, true);
+            const result = randWord({wordLength: wordLength, repeatingChars: true}, words);
             expect(expectedWords).toContain(result);
         }
     );

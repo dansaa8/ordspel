@@ -10,7 +10,7 @@ export default function evalWord(target, guess) {
             target.splice(i, 1, null);
             guess.splice(i, 1, null);
         }
-    }
+    }   
     for (let i = 0; i < wordLength; i++) {
         if (guess[i] !== null) {
             const index = target.findIndex(char => char === guess[i]);
